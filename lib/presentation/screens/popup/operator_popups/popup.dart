@@ -14,7 +14,7 @@ class PopUp extends StatefulWidget {
 class _PopUpState extends State<PopUp> {
   TextEditingController _NumberController = TextEditingController();
   String? valueChoose;
-  List ListItems = ["Item 1", "Item 2", "Item 3"];
+  // List ListItems = ["Item 1", "Item 2", "Item 3"];
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,22 @@ class _PopUpState extends State<PopUp> {
       children: [
         Center(
           child: Container(
-            height: MediaQuery.of(context).size.height / 1.3,
-            width: MediaQuery.of(context).size.width / 1.1,
+            //height: MediaQuery.of(context).size.height / 1.3,
+            height: MediaQuery.of(context).size.height / 2.7,
+            //width: MediaQuery.of(context).size.width / 1.1,
+            width: MediaQuery.of(context).size.width / 3.5,
             color: Colors.white,
             child: Padding(
-              padding: EdgeInsets.all(AppPadding.p16),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height / 30,
+                  bottom:MediaQuery.of(context).size.height /  30,
+                  left: MediaQuery.of(context).size.width / 60,
+                  //right: MediaQuery.of(context).size.width / 30,
+              ),
               child: Material(
                 child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                  behavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
                   child: ListView(children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +58,8 @@ class _PopUpState extends State<PopUp> {
                                       fontWeight: FontWeightManager.bold),
                                 ),
                                 SizedBox(
-                                  height: MediaQuery.of(context).size.height / 55,
+                                  height:
+                                      MediaQuery.of(context).size.height / 55,
                                 ),
                                 Text(
                                   '100',
@@ -60,368 +69,462 @@ class _PopUpState extends State<PopUp> {
                                       fontWeight: FontWeightManager.bold),
                                 ),
                                 SizedBox(
-                                  height: MediaQuery.of(context).size.height / 23,
+                                  height:
+                                      MediaQuery.of(context).size.height / 18,
                                 ),
-                                Text(
-                                  'Yield',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.regular),
-                                ),
-                                SizedBox(
-                                  height: AppSize.s45,
-                                  width: MediaQuery.of(context).size.width / 4.5,
-                                  child: TextFormField(
-                                    textAlign: TextAlign.start,
-                                    textAlignVertical: TextAlignVertical.bottom,
-                                    controller: _NumberController,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      hintText: '100',
-                                      hintStyle: TextStyle(
-                                          fontWeight: FontWeightManager.bold),
-                                      // hintText: AppString.email,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
+                                ///txt
+                                Row(
+                                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Yield',
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context).size.width / 100,
+                                          fontFamily: FontConstants.fontFamily2,
+                                          fontWeight:
+                                              FontWeightManager.regular),
                                     ),
-                                  ),
+                                    SizedBox(
+                                            width: MediaQuery.of(context).size.width / 17,
+                                          ),
+                                    Text(
+                                            'Rework',
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context).size.width / 100,
+                                                fontFamily: FontConstants.fontFamily2,
+                                                fontWeight: FontWeightManager.regular),
+                                          ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width / 22,
+                                    ),
+                                    Text(
+                                            'Rejection',
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context).size.width / 100,
+                                                fontFamily: FontConstants.fontFamily2,
+                                                fontWeight: FontWeightManager.regular),
+                                          ),
+                                    // SizedBox(
+                                    //   height: AppSize.s45,
+                                    //   width: MediaQuery.of(context).size.width / 4.5,
+                                    //   child: TextFormField(
+                                    //     textAlign: TextAlign.start,
+                                    //     textAlignVertical: TextAlignVertical.bottom,
+                                    //     controller: _NumberController,
+                                    //     keyboardType: TextInputType.number,
+                                    //     decoration: InputDecoration(
+                                    //       hintText: '100',
+                                    //       hintStyle: TextStyle(
+                                    //           fontWeight: FontWeightManager.bold),
+                                    //       // hintText: AppString.email,
+                                    //       border: OutlineInputBorder(
+                                    //         borderRadius: BorderRadius.circular(10),
+                                    //       ),
+                                    //     ),
+                                    //   ),
+                                    // )
+                                  ],
+                                ),
+                                ///txtfield
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: MediaQuery.of(context).size.height/ 25,
+                                            width: MediaQuery.of(context).size.width / 15,
+                                            child: TextFormField(
+                                              textAlign: TextAlign.start,
+                                              textAlignVertical: TextAlignVertical.top,
+                                              // controller: _NumberController,
+                                              keyboardType: TextInputType.number,
+                                              decoration: InputDecoration(
+                                                // hintText: AppString.email,
+                                                border: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width / 80,
+                                    ),
+                                      SizedBox(
+                                        height: MediaQuery.of(context).size.height/ 25,
+                                              width: MediaQuery.of(context).size.width / 15,
+                                              child: TextFormField(
+                                                textAlign: TextAlign.start,
+                                                textAlignVertical: TextAlignVertical.top,
+                                                // controller: _NumberController,
+                                                keyboardType: TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  // hintText: AppString.email,
+                                                  border: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width / 70,
+                                    ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context).size.height/ 25,
+                                                //height: AppSize.s36,
+                                                width: MediaQuery.of(context).size.width / 15,
+                                                child: TextFormField(
+                                                  textAlign: TextAlign.start,
+                                                  textAlignVertical: TextAlignVertical.top,
+                                                  // controller: _NumberController,
+                                                  keyboardType: TextInputType.number,
+                                                  decoration: InputDecoration(
+                                                    // hintText: AppString.email,
+                                                    border: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                  ],
                                 )
                               ],
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Rework',
-                                  style: TextStyle(
-                                      color: ColorManager.faintb,
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 55,
-                                ),
-                                Text(
-                                  '0',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 23,
-                                ),
-                                Text(
-                                  'Rework',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.regular),
-                                ),
-                                SizedBox(
-                                  height: AppSize.s45,
-                                  width: MediaQuery.of(context).size.width / 4.5,
-                                  child: TextFormField(
-                                    textAlign: TextAlign.start,
-                                    textAlignVertical: TextAlignVertical.top,
-                                    // controller: _NumberController,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      // hintText: AppString.email,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Rejection',
-                                  style: TextStyle(
-                                      color: ColorManager.faintb,
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 55,
-                                ),
-                                Text(
-                                  '0',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 23,
-                                ),
-                                Text(
-                                  'Rejection',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.regular),
-                                ),
-                                SizedBox(
-                                  height: AppSize.s45,
-                                  width: MediaQuery.of(context).size.width / 4.5,
-                                  child: TextFormField(
-                                    textAlign: TextAlign.start,
-                                    textAlignVertical: TextAlignVertical.top,
-                                    // controller: _NumberController,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      // hintText: AppString.email,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
+                            // Column(
+                            //   crossAxisAlignment: CrossAxisAlignment.start,
+                            //   children: [
+                            //     Text(
+                            //       'Rework',
+                            //       style: TextStyle(
+                            //           color: ColorManager.faintb,
+                            //           fontSize: FontSize.s15,
+                            //           fontFamily: FontConstants.fontFamily2,
+                            //           fontWeight: FontWeightManager.bold),
+                            //     ),
+                            //     SizedBox(
+                            //       height: MediaQuery.of(context).size.height / 55,
+                            //     ),
+                            //     Text(
+                            //       '0',
+                            //       style: TextStyle(
+                            //           fontSize: FontSize.s15,
+                            //           fontFamily: FontConstants.fontFamily2,
+                            //           fontWeight: FontWeightManager.bold),
+                            //     ),
+                            //     SizedBox(
+                            //       height: MediaQuery.of(context).size.height / 23,
+                            //     ),
+                            //     Text(
+                            //       'Rework',
+                            //       style: TextStyle(
+                            //           fontSize: FontSize.s15,
+                            //           fontFamily: FontConstants.fontFamily2,
+                            //           fontWeight: FontWeightManager.regular),
+                            //     ),
+                            //     SizedBox(
+                            //       height: AppSize.s45,
+                            //       width: MediaQuery.of(context).size.width / 4.5,
+                            //       child: TextFormField(
+                            //         textAlign: TextAlign.start,
+                            //         textAlignVertical: TextAlignVertical.top,
+                            //         // controller: _NumberController,
+                            //         keyboardType: TextInputType.number,
+                            //         decoration: InputDecoration(
+                            //           // hintText: AppString.email,
+                            //           border: OutlineInputBorder(
+                            //             borderRadius: BorderRadius.circular(10),
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     )
+                            //   ],
+                            // ),
+                            // Column(
+                            //   crossAxisAlignment: CrossAxisAlignment.start,
+                            //   children: [
+                            //     // Text(
+                            //     //   'Rejection',
+                            //     //   style: TextStyle(
+                            //     //       color: ColorManager.faintb,
+                            //     //       fontSize: FontSize.s15,
+                            //     //       fontFamily: FontConstants.fontFamily2,
+                            //     //       fontWeight: FontWeightManager.bold),
+                            //     // ),
+                            //     // SizedBox(
+                            //     //   height: MediaQuery.of(context).size.height / 55,
+                            //     // ),
+                            //     // Text(
+                            //     //   '0',
+                            //     //   style: TextStyle(
+                            //     //       fontSize: FontSize.s15,
+                            //     //       fontFamily: FontConstants.fontFamily2,
+                            //     //       fontWeight: FontWeightManager.bold),
+                            //     // ),
+                            //     SizedBox(
+                            //       height: MediaQuery.of(context).size.height / 20,
+                            //     ),
+                            //     Text(
+                            //       'Rejection',
+                            //       style: TextStyle(
+                            //           fontSize: FontSize.s15,
+                            //           fontFamily: FontConstants.fontFamily2,
+                            //           fontWeight: FontWeightManager.regular),
+                            //     ),
+                            //     SizedBox(
+                            //       height: AppSize.s45,
+                            //       width: MediaQuery.of(context).size.width / 4.5,
+                            //       child: TextFormField(
+                            //         textAlign: TextAlign.start,
+                            //         textAlignVertical: TextAlignVertical.top,
+                            //         // controller: _NumberController,
+                            //         keyboardType: TextInputType.number,
+                            //         decoration: InputDecoration(
+                            //           // hintText: AppString.email,
+                            //           border: OutlineInputBorder(
+                            //             borderRadius: BorderRadius.circular(10),
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     )
+                            //   ],
+                            // ),
                           ],
                         ),
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.height / 15,
+                        // ),
+                        // Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     const Text(
+                        //       'Activity Type',
+                        //       style: TextStyle(
+                        //         fontFamily: FontConstants.fontFamily2,
+                        //         fontWeight: FontWeightManager.bold,
+                        //         fontSize: FontSize.s15,
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: MediaQuery.of(context).size.height / 90,
+                        //     ),
+                        //     Container(
+                        //         decoration: BoxDecoration(
+                        //             border:
+                        //                 Border.all(color: Colors.grey, width: 1),
+                        //             borderRadius: BorderRadius.circular(10)),
+                        //         padding: EdgeInsets.all(AppPadding.p8),
+                        //         height: AppSize.s45,
+                        //         child: DropdownButton(
+                        //           hint: Text("Select"),
+                        //           value: valueChoose,
+                        //           underline: SizedBox(),
+                        //           isExpanded: true,
+                        //           icon: Icon(Icons.keyboard_arrow_down_outlined),
+                        //           iconSize: AppSize.s36,
+                        //           dropdownColor: ColorManager.white,
+                        //           style: TextStyle(
+                        //             color: ColorManager.black,
+                        //           ),
+                        //           onChanged: (val) {
+                        //             setState(() {
+                        //               valueChoose = val as String?;
+                        //             });
+                        //           },
+                        //           items: ListItems.map((ValueItem) {
+                        //             return DropdownMenuItem(
+                        //               child: Text(ValueItem),
+                        //               value: ValueItem,
+                        //             );
+                        //           }).toList(),
+                        //         ))
+                        //   ],
+                        // ),
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.height / 20,
+                        // ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [
+                        //     Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: [
+                        //         Text(
+                        //           'Down Time Code',
+                        //           style: TextStyle(
+                        //               fontSize: FontSize.s15,
+                        //               fontFamily: FontConstants.fontFamily2,
+                        //               fontWeight: FontWeightManager.bold),
+                        //         ),
+                        //         SizedBox(
+                        //           height: MediaQuery.of(context).size.height / 80,
+                        //         ),
+                        //         Container(
+                        //             decoration: BoxDecoration(
+                        //                 border: Border.all(
+                        //                     color: Colors.grey, width: 1),
+                        //                 borderRadius: BorderRadius.circular(10)),
+                        //             padding: EdgeInsets.all(AppPadding.p8),
+                        //             height: AppSize.s45,
+                        //             width:
+                        //                 MediaQuery.of(context).size.width / 4.5,
+                        //             child: DropdownButton(
+                        //               hint: Text("Select"),
+                        //               value: valueChoose,
+                        //               underline: SizedBox(),
+                        //               isExpanded: true,
+                        //               icon: Icon(
+                        //                   Icons.keyboard_arrow_down_outlined),
+                        //               onChanged: (val) {
+                        //                 setState(() {
+                        //                   valueChoose = val as String?;
+                        //                 });
+                        //               },
+                        //               items: ListItems.map((ValueItem) {
+                        //                 return DropdownMenuItem(
+                        //                   child: Text(ValueItem),
+                        //                   value: ValueItem,
+                        //                 );
+                        //               }).toList(),
+                        //             ))
+                        //       ],
+                        //     ),
+                        //     Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: [
+                        //         Text(
+                        //           'Down Time',
+                        //           style: TextStyle(
+                        //               fontSize: FontSize.s15,
+                        //               fontFamily: FontConstants.fontFamily2,
+                        //               fontWeight: FontWeightManager.bold),
+                        //         ),
+                        //         SizedBox(
+                        //           height: MediaQuery.of(context).size.height / 80,
+                        //         ),
+                        //         Container(
+                        //             decoration: BoxDecoration(
+                        //                 border: Border.all(
+                        //                     color: Colors.grey, width: 1),
+                        //                 borderRadius: BorderRadius.circular(10)),
+                        //             padding: EdgeInsets.all(AppPadding.p8),
+                        //             height: AppSize.s45,
+                        //             width:
+                        //                 MediaQuery.of(context).size.width / 4.5,
+                        //             child: DropdownButton(
+                        //               hint: Text("Select"),
+                        //               value: valueChoose,
+                        //               underline: SizedBox(),
+                        //               isExpanded: true,
+                        //               icon: Icon(
+                        //                   Icons.keyboard_arrow_down_outlined),
+                        //               onChanged: (val) {
+                        //                 setState(() {
+                        //                   valueChoose = val as String?;
+                        //                 });
+                        //               },
+                        //               items: ListItems.map((ValueItem) {
+                        //                 return DropdownMenuItem(
+                        //                   child: Text(ValueItem),
+                        //                   value: ValueItem,
+                        //                 );
+                        //               }).toList(),
+                        //             ))
+                        //       ],
+                        //     ),
+                        //     Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: [
+                        //         Text(
+                        //           'UOM Down Time',
+                        //           style: TextStyle(
+                        //               fontSize: FontSize.s15,
+                        //               fontFamily: FontConstants.fontFamily2,
+                        //               fontWeight: FontWeightManager.bold),
+                        //         ),
+                        //         SizedBox(
+                        //           height: MediaQuery.of(context).size.height / 80,
+                        //         ),
+                        //         Container(
+                        //             decoration: BoxDecoration(
+                        //                 border: Border.all(
+                        //                     color: Colors.grey, width: 1),
+                        //                 borderRadius: BorderRadius.circular(10)),
+                        //             padding: EdgeInsets.all(AppPadding.p8),
+                        //             height: AppSize.s45,
+                        //             width:
+                        //                 MediaQuery.of(context).size.width / 4.5,
+                        //             child: DropdownButton(
+                        //               hint: Text("Select"),
+                        //               value: valueChoose,
+                        //               underline: SizedBox(),
+                        //               isExpanded: true,
+                        //               icon: Icon(
+                        //                   Icons.keyboard_arrow_down_outlined),
+                        //               onChanged: (val) {
+                        //                 setState(() {
+                        //                   valueChoose = val as String?;
+                        //                 });
+                        //               },
+                        //               items: ListItems.map((ValueItem) {
+                        //                 return DropdownMenuItem(
+                        //                   child: Text(ValueItem),
+                        //                   value: ValueItem,
+                        //                 );
+                        //               }).toList(),
+                        //             ))
+                        //       ],
+                        //     )
+                        //   ],
+                        // ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height / 15,
+                          height: MediaQuery.of(context).size.height / 16,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Activity Type',
-                              style: TextStyle(
-                                fontFamily: FontConstants.fontFamily2,
-                                fontWeight: FontWeightManager.bold,
-                                fontSize: FontSize.s15,
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 90,
-                            ),
-                            Container(
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: Colors.grey, width: 1),
-                                    borderRadius: BorderRadius.circular(10)),
-                                padding: EdgeInsets.all(AppPadding.p8),
-                                height: AppSize.s45,
-                                child: DropdownButton(
-                                  hint: Text("Select"),
-                                  value: valueChoose,
-                                  underline: SizedBox(),
-                                  isExpanded: true,
-                                  icon: Icon(Icons.keyboard_arrow_down_outlined),
-                                  iconSize: AppSize.s36,
-                                  dropdownColor: ColorManager.white,
-                                  style: TextStyle(
-                                    color: ColorManager.black,
-                                  ),
-                                  onChanged: (val) {
-                                    setState(() {
-                                      valueChoose = val as String?;
-                                    });
+                        Padding(
+                          padding: EdgeInsets.only(
+                            right: MediaQuery.of(context).size.width / 50,),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height/ 25,
+                                width: MediaQuery.of(context).size.width / 14,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
                                   },
-                                  items: ListItems.map((ValueItem) {
-                                    return DropdownMenuItem(
-                                      child: Text(ValueItem),
-                                      value: ValueItem,
-                                    );
-                                  }).toList(),
-                                ))
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Down Time Code',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
+                                  child: Text(
+                                    'Cancel',
+                                    style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.width / 100,
                                       fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 80,
-                                ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.grey, width: 1),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    padding: EdgeInsets.all(AppPadding.p8),
-                                    height: AppSize.s45,
-                                    width:
-                                        MediaQuery.of(context).size.width / 4.5,
-                                    child: DropdownButton(
-                                      hint: Text("Select"),
-                                      value: valueChoose,
-                                      underline: SizedBox(),
-                                      isExpanded: true,
-                                      icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined),
-                                      onChanged: (val) {
-                                        setState(() {
-                                          valueChoose = val as String?;
-                                        });
-                                      },
-                                      items: ListItems.map((ValueItem) {
-                                        return DropdownMenuItem(
-                                          child: Text(ValueItem),
-                                          value: ValueItem,
-                                        );
-                                      }).toList(),
-                                    ))
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Down Time',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 80,
-                                ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.grey, width: 1),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    padding: EdgeInsets.all(AppPadding.p8),
-                                    height: AppSize.s45,
-                                    width:
-                                        MediaQuery.of(context).size.width / 4.5,
-                                    child: DropdownButton(
-                                      hint: Text("Select"),
-                                      value: valueChoose,
-                                      underline: SizedBox(),
-                                      isExpanded: true,
-                                      icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined),
-                                      onChanged: (val) {
-                                        setState(() {
-                                          valueChoose = val as String?;
-                                        });
-                                      },
-                                      items: ListItems.map((ValueItem) {
-                                        return DropdownMenuItem(
-                                          child: Text(ValueItem),
-                                          value: ValueItem,
-                                        );
-                                      }).toList(),
-                                    ))
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'UOM Down Time',
-                                  style: TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height / 80,
-                                ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.grey, width: 1),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    padding: EdgeInsets.all(AppPadding.p8),
-                                    height: AppSize.s45,
-                                    width:
-                                        MediaQuery.of(context).size.width / 4.5,
-                                    child: DropdownButton(
-                                      hint: Text("Select"),
-                                      value: valueChoose,
-                                      underline: SizedBox(),
-                                      isExpanded: true,
-                                      icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined),
-                                      onChanged: (val) {
-                                        setState(() {
-                                          valueChoose = val as String?;
-                                        });
-                                      },
-                                      items: ListItems.map((ValueItem) {
-                                        return DropdownMenuItem(
-                                          child: Text(ValueItem),
-                                          value: ValueItem,
-                                        );
-                                      }).toList(),
-                                    ))
-                              ],
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 4,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  'Cancel',
-                                  style: TextStyle(
-                                    fontSize: FontSize.s16,
-                                    fontFamily: FontConstants.fontFamily2,
-                                    fontWeight: FontWeightManager.bold,
-                                    color: ColorManager.faintblue,
+                                      fontWeight: FontWeightManager.bold,
+                                      color: ColorManager.faintblue,
+                                    ),
                                   ),
-                                ),
-                                style:
-                                    TextButton.styleFrom(shape: StadiumBorder()),
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 4,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                style: TextButton.styleFrom(
-                                    shape: StadiumBorder(),
-                                    backgroundColor: ColorManager.faintblue),
-                                child: Text(
-                                  'Save',
-                                  style: TextStyle(
-                                    fontSize: FontSize.s16,
-                                    fontFamily: FontConstants.fontFamily2,
-                                    fontWeight: FontWeightManager.bold,
-                                    color: Colors.white,
-                                  ),
+                                  style: TextButton.styleFrom(
+                                      shape: StadiumBorder()),
                                 ),
                               ),
-                            )
-                          ],
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height/ 25,
+                                width: MediaQuery.of(context).size.width / 14,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  style: TextButton.styleFrom(
+                                      shape: StadiumBorder(),
+                                      backgroundColor: ColorManager.faintblue),
+                                  child: Text(
+                                    'Save',
+                                    style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.width / 100,
+                                      fontFamily: FontConstants.fontFamily2,
+                                      fontWeight: FontWeightManager.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
