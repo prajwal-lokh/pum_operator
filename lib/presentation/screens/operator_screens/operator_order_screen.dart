@@ -303,7 +303,9 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                     height:
                                         MediaQuery.of(context).size.height / 25,
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor:
                                             ColorManager.appbarcolor,
