@@ -128,12 +128,15 @@ class _PopUpState extends State<PopUp> {
                                 ///txtfield
                                 Row(
                                   children: [
-                                    SizedBox(
+                                    Container(
                                       height: MediaQuery.of(context).size.height/ 25,
                                             width: MediaQuery.of(context).size.width / 15,
+                                            alignment: Alignment.center,
                                             child: TextFormField(
+
+                                              cursorHeight: 18,
                                               textAlign: TextAlign.start,
-                                              textAlignVertical: TextAlignVertical.top,
+                                              //textAlignVertical: TextAlignVertical.top,
                                               // controller: _NumberController,
                                               keyboardType: TextInputType.number,
                                               decoration: InputDecoration(
@@ -151,8 +154,10 @@ class _PopUpState extends State<PopUp> {
                                         height: MediaQuery.of(context).size.height/ 25,
                                               width: MediaQuery.of(context).size.width / 15,
                                               child: TextFormField(
+
+                                                cursorHeight: 18,
                                                 textAlign: TextAlign.start,
-                                                textAlignVertical: TextAlignVertical.top,
+                                               // textAlignVertical: TextAlignVertical.center,
                                                 // controller: _NumberController,
                                                 keyboardType: TextInputType.number,
                                                 decoration: InputDecoration(
@@ -167,12 +172,14 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width / 70,
                                     ),
                                         SizedBox(
+
                                           height: MediaQuery.of(context).size.height/ 25,
                                                 //height: AppSize.s36,
                                                 width: MediaQuery.of(context).size.width / 15,
                                                 child: TextFormField(
+                                                  cursorHeight: 18,
                                                   textAlign: TextAlign.start,
-                                                  textAlignVertical: TextAlignVertical.top,
+                                                  //textAlignVertical: TextAlignVertical.center,
                                                   // controller: _NumberController,
                                                   keyboardType: TextInputType.number,
                                                   decoration: InputDecoration(
