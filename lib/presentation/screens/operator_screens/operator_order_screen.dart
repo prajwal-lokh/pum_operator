@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -13,6 +14,24 @@ class OperatorOrderScreen extends StatefulWidget {
 }
 
 class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
+
+  // String finalemail = "";
+  //
+  // Future getValidationData() async {
+  //   final SharedPreferences sharedPreferences =
+  //   await SharedPreferences.getInstance();
+  //   var obtainedEmail = sharedPreferences.getString('email');
+  //   setState(() {
+  //     finalemail = obtainedEmail!;
+  //   });
+  //   print(finalemail);
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //  // getValidationData();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

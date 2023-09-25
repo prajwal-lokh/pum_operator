@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pum_operator/presentation/screens/home_screen/home_screen.dart';
 import 'package:pum_operator/presentation/screens/login_screen/login_screen.dart';
+import 'package:pum_operator/presentation/screens/operator_screens/operator_order_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -11,10 +13,10 @@ void main() async {
           appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
           messagingSenderId: "748212548066",
           projectId: "phoenixmecano-dev"));
-  // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  // var email = sharedPreferences.getString('adminEmail');
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+   var email = sharedPreferences.getString('email');
   runApp(MyApp(
-      // email: email,
+       email: email,
       ));
 }
 //
@@ -39,9 +41,8 @@ class MyApp extends StatelessWidget {
                       ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                   useMaterial3: true,
                 ),
-                home: LoginScreenAndroid(),
-              );
-              //email == null ? LoginScreenWeb() : DashbordScreenview());
+                home: LoginScreenAndroid(),);
+            //home:  email == null ? LoginScreenAndroid() : HomeScreen());
               // UserManagemntscreen());
               // );
             } else {
