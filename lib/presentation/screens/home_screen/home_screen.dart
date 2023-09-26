@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   children: [
                                     Text(
-                                      'Material code   :',
+                                      'Material Code   :',
                                       style: TextStyle(
                                           fontFamily: FontConstants.fontFamily2,
                                           color: ColorManager.black,
@@ -244,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          const OperatorOrderScreen()));
+                                                          OperatorOrderScreen()));
                                             },
                                             style: ElevatedButton.styleFrom(
                                               shape: StadiumBorder(),

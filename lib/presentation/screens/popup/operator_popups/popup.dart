@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pum_operator/presentation/screens/operator_screens/operator_order_screen.dart';
 
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/font_manager.dart';
@@ -12,7 +13,9 @@ class PopUp extends StatefulWidget {
 }
 
 class _PopUpState extends State<PopUp> {
-  TextEditingController _NumberController = TextEditingController();
+  TextEditingController _NumberController1 = TextEditingController();
+  TextEditingController _NumberController2 = TextEditingController();
+  TextEditingController _NumberController3 = TextEditingController();
   String? valueChoose;
   List ListItems = ["Item 1", "Item 2", "Item 3"];
 
@@ -73,7 +76,7 @@ class _PopUpState extends State<PopUp> {
                                 child: TextFormField(
                                   textAlign: TextAlign.start,
                                   textAlignVertical: TextAlignVertical.bottom,
-                                  controller: _NumberController,
+                                  controller: _NumberController1,
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     hintText: '100',
@@ -124,11 +127,11 @@ class _PopUpState extends State<PopUp> {
                                 width: MediaQuery.of(context).size.width / 4.5,
                                 child: TextFormField(
                                   textAlign: TextAlign.start,
-                                  textAlignVertical: TextAlignVertical.top,
-                                  // controller: _NumberController,
+                                  textAlignVertical: TextAlignVertical.bottom,
+                                  controller: _NumberController2,
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
-                                    // hintText: AppString.email,
+                                    hintText: " ",
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -173,11 +176,11 @@ class _PopUpState extends State<PopUp> {
                                 width: MediaQuery.of(context).size.width / 4.5,
                                 child: TextFormField(
                                   textAlign: TextAlign.start,
-                                  textAlignVertical: TextAlignVertical.top,
-                                  // controller: _NumberController,
+                                  textAlignVertical: TextAlignVertical.bottom,
+                                  controller: _NumberController3,
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
-                                    // hintText: AppString.email,
+                                     hintText: " ",
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -399,6 +402,7 @@ class _PopUpState extends State<PopUp> {
                                   TextButton.styleFrom(shape: StadiumBorder()),
                             ),
                           ),
+                          SizedBox(width: 5),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 4,
                             child: TextButton(
