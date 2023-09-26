@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -16,6 +17,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _auth = FirebaseAuth.instance;
+ // String finalemail = "";
+
+
+  // Future getValidationData() async {
+  //   final SharedPreferences sharedPreferences =
+  //   await SharedPreferences.getInstance();
+  //   var obtainedEmail = sharedPreferences.getString('email');
+  //   setState(() {
+  //     finalemail = obtainedEmail!;
+  //   });
+  //   print(finalemail);
+  // }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getValidationData();
+  // }
+
 
   @override
   Widget build(BuildContext context) {
