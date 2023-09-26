@@ -12,9 +12,9 @@ class OperatorOrderScreen extends StatefulWidget {
   State<OperatorOrderScreen> createState() => _OperatorOrderScreenState();
 }
 
-class _OperatorOrderScreenState extends State<OperatorOrderScreen>{
+class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.appbarcolor,

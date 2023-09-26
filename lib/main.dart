@@ -14,11 +14,12 @@ void main() async {
           messagingSenderId: "748212548066",
           projectId: "phoenixmecano-dev"));
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-   var email = sharedPreferences.getString('email');
+  var email = sharedPreferences.getString('email');
   runApp(MyApp(
-       email: email,
-      ));
+    email: email,
+  ));
 }
+
 //
 class MyApp extends StatelessWidget {
   var email;
@@ -41,8 +42,9 @@ class MyApp extends StatelessWidget {
                       ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                   useMaterial3: true,
                 ),
-                home: LoginScreenAndroid(),);
-            //home:  email == null ? LoginScreenAndroid() : HomeScreen());
+                home: LoginScreenAndroid(),
+              );
+              //home:  email == null ? LoginScreenAndroid() : HomeScreen());
               // UserManagemntscreen());
               // );
             } else {

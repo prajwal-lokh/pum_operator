@@ -23,17 +23,15 @@ class _PopUpState extends State<PopUp> {
       children: [
         Center(
           child: Container(
-            //height: MediaQuery.of(context).size.height / 1.3,
             height: MediaQuery.of(context).size.height / 2.7,
-            //width: MediaQuery.of(context).size.width / 1.1,
-            width: MediaQuery.of(context).size.width / 3.5,
+            width: MediaQuery.of(context).size.width / 1.5,
             color: Colors.white,
             child: Padding(
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height / 30,
-                  bottom:MediaQuery.of(context).size.height /  30,
-                  left: MediaQuery.of(context).size.width / 60,
-                  //right: MediaQuery.of(context).size.width / 30,
+                bottom: MediaQuery.of(context).size.height / 50,
+                left: MediaQuery.of(context).size.width / 60,
+                //right: MediaQuery.of(context).size.width / 30,
               ),
               child: Material(
                 child: ScrollConfiguration(
@@ -70,40 +68,59 @@ class _PopUpState extends State<PopUp> {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.height / 18,
+                                      MediaQuery.of(context).size.height / 19,
                                 ),
+
                                 ///txt
                                 Row(
-                                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          120,
+                                    ),
                                     Text(
                                       'Yield',
                                       style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.width / 100,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              70,
                                           fontFamily: FontConstants.fontFamily2,
                                           fontWeight:
                                               FontWeightManager.regular),
                                     ),
                                     SizedBox(
-                                            width: MediaQuery.of(context).size.width / 17,
-                                          ),
-                                    Text(
-                                            'Rework',
-                                            style: TextStyle(
-                                                fontSize: MediaQuery.of(context).size.width / 100,
-                                                fontFamily: FontConstants.fontFamily2,
-                                                fontWeight: FontWeightManager.regular),
-                                          ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width / 22,
+                                      width: MediaQuery.of(context).size.width /
+                                          13,
                                     ),
                                     Text(
-                                            'Rejection',
-                                            style: TextStyle(
-                                                fontSize: MediaQuery.of(context).size.width / 100,
-                                                fontFamily: FontConstants.fontFamily2,
-                                                fontWeight: FontWeightManager.regular),
-                                          ),
+                                      'Rework',
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              70,
+                                          fontFamily: FontConstants.fontFamily2,
+                                          fontWeight:
+                                              FontWeightManager.regular),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          15,
+                                    ),
+                                    Text(
+                                      'Rejection',
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              70,
+                                          fontFamily: FontConstants.fontFamily2,
+                                          fontWeight:
+                                              FontWeightManager.regular),
+                                    ),
                                     // SizedBox(
                                     //   height: AppSize.s45,
                                     //   width: MediaQuery.of(context).size.width / 4.5,
@@ -125,71 +142,86 @@ class _PopUpState extends State<PopUp> {
                                     // )
                                   ],
                                 ),
+
                                 ///txtfield
                                 Row(
                                   children: [
                                     Container(
-                                      height: MediaQuery.of(context).size.height/ 25,
-                                            width: MediaQuery.of(context).size.width / 15,
-                                            alignment: Alignment.center,
-                                            child: TextFormField(
-
-                                              cursorHeight: 18,
-                                              textAlign: TextAlign.start,
-                                              //textAlignVertical: TextAlignVertical.top,
-                                              // controller: _NumberController,
-                                              keyboardType: TextInputType.number,
-                                              decoration: InputDecoration(
-                                                // hintText: AppString.email,
-                                                border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                ),
-                                              ),
-                                            ),
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              20,
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      alignment: Alignment.center,
+                                      child: TextFormField(
+                                        cursorHeight: 18,
+                                        textAlign: TextAlign.start,
+                                        textAlignVertical:
+                                            TextAlignVertical.center,
+                                        // controller: _NumberController,
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                          // hintText: AppString.email,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width / 80,
+                                        ),
+                                      ),
                                     ),
-                                      SizedBox(
-                                        height: MediaQuery.of(context).size.height/ 25,
-                                              width: MediaQuery.of(context).size.width / 15,
-                                              child: TextFormField(
-
-                                                cursorHeight: 18,
-                                                textAlign: TextAlign.start,
-                                               // textAlignVertical: TextAlignVertical.center,
-                                                // controller: _NumberController,
-                                                keyboardType: TextInputType.number,
-                                                decoration: InputDecoration(
-                                                  // hintText: AppString.email,
-                                                  border: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
                                     SizedBox(
-                                      width: MediaQuery.of(context).size.width / 70,
+                                      width: MediaQuery.of(context).size.width /
+                                          80,
                                     ),
-                                        SizedBox(
-
-                                          height: MediaQuery.of(context).size.height/ 25,
-                                                //height: AppSize.s36,
-                                                width: MediaQuery.of(context).size.width / 15,
-                                                child: TextFormField(
-                                                  cursorHeight: 18,
-                                                  textAlign: TextAlign.start,
-                                                  //textAlignVertical: TextAlignVertical.center,
-                                                  // controller: _NumberController,
-                                                  keyboardType: TextInputType.number,
-                                                  decoration: InputDecoration(
-                                                    // hintText: AppString.email,
-                                                    border: OutlineInputBorder(
-                                                      borderRadius: BorderRadius.circular(10),
-                                                    ),
-                                                  ),
-                                                ),
-                                              )
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              20,
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      child: TextFormField(
+                                        cursorHeight: 18,
+                                        textAlign: TextAlign.start,
+                                        textAlignVertical:
+                                            TextAlignVertical.center,
+                                        // controller: _NumberController,
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                          // hintText: AppString.email,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          70,
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              20,
+                                      //height: AppSize.s36,
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      child: TextFormField(
+                                        cursorHeight: 18,
+                                        textAlign: TextAlign.start,
+                                        textAlignVertical:
+                                            TextAlignVertical.center,
+                                        // controller: _NumberController,
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                          // hintText: AppString.email,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 )
                               ],
@@ -481,17 +513,18 @@ class _PopUpState extends State<PopUp> {
                         //   ],
                         // ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height / 16,
+                          height: MediaQuery.of(context).size.height / 18,
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            right: MediaQuery.of(context).size.width / 50,),
+                            right: MediaQuery.of(context).size.width / 50,
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               SizedBox(
-                                height: MediaQuery.of(context).size.height/ 25,
-                                width: MediaQuery.of(context).size.width / 14,
+                                width: MediaQuery.of(context).size.width / 7,
+                                height: MediaQuery.of(context).size.height / 20,
                                 child: TextButton(
                                   onPressed: () {
                                     Navigator.pop(context);
@@ -499,39 +532,90 @@ class _PopUpState extends State<PopUp> {
                                   child: Text(
                                     'Cancel',
                                     style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.width / 100,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold,
-                                      color: ColorManager.faintblue,
-                                    ),
+                                        fontFamily: FontConstants.fontFamily2,
+                                        color: ColorManager.faintblue,
+                                        fontWeight: FontWeightManager.bold,
+                                        fontSize:
+                                            MediaQuery.of(context).size.width /
+                                                50),
                                   ),
-                                  style: TextButton.styleFrom(
-                                      shape: StadiumBorder()),
                                 ),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height/ 25,
-                                width: MediaQuery.of(context).size.width / 14,
-                                child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  style: TextButton.styleFrom(
-                                      shape: StadiumBorder(),
-                                      backgroundColor: ColorManager.faintblue),
+                                width: 15,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 7,
+                                height: MediaQuery.of(context).size.height / 20,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: ColorManager.appbarcolor,
+                                  ),
                                   child: Text(
                                     'Save',
                                     style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.width / 100,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold,
-                                      color: Colors.white,
-                                    ),
+                                        fontFamily: FontConstants.fontFamily2,
+                                        color: ColorManager.white,
+                                        fontWeight: FontWeightManager.regular,
+                                        fontSize:
+                                            MediaQuery.of(context).size.width /
+                                                50),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.end,
+                          //   children: [
+                          //     SizedBox(
+                          //       height: MediaQuery.of(context).size.height / 20,
+                          //       width: MediaQuery.of(context).size.width / 14,
+                          //       child: TextButton(
+                          //         onPressed: () {
+                          //           Navigator.pop(context);
+                          //         },
+                          //         child: Text(
+                          //           'Cancel',
+                          //           style: TextStyle(
+                          //             fontSize:
+                          //                 MediaQuery.of(context).size.width /
+                          //                     100,
+                          //             fontFamily: FontConstants.fontFamily2,
+                          //             fontWeight: FontWeightManager.bold,
+                          //             color: ColorManager.faintblue,
+                          //           ),
+                          //         ),
+                          //         style: TextButton.styleFrom(
+                          //             shape: StadiumBorder()),
+                          //       ),
+                          //     ),
+                          //     SizedBox(
+                          //       height: MediaQuery.of(context).size.height / 20,
+                          //       width: MediaQuery.of(context).size.width / 14,
+                          //       child: TextButton(
+                          //         onPressed: () {
+                          //           Navigator.pop(context);
+                          //         },
+                          //         style: TextButton.styleFrom(
+                          //             shape: StadiumBorder(),
+                          //             backgroundColor: ColorManager.faintblue),
+                          //         child: Text(
+                          //           'Save',
+                          //           style: TextStyle(
+                          //             fontSize:
+                          //                 MediaQuery.of(context).size.width /
+                          //                     100,
+                          //             fontFamily: FontConstants.fontFamily2,
+                          //             fontWeight: FontWeightManager.bold,
+                          //             color: Colors.white,
+                          //           ),
+                          //         ),
+                          //       ),
+                          //     )
+                          //   ],
+                          // ),
                         )
                       ],
                     ),

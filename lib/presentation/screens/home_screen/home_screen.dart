@@ -17,8 +17,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _auth = FirebaseAuth.instance;
- // String finalemail = "";
-
+  // String finalemail = "";
 
   // Future getValidationData() async {
   //   final SharedPreferences sharedPreferences =
@@ -34,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
   //   super.initState();
   //   getValidationData();
   // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               40),
                                     ),
                                     Text(
-                                      '10',
+                                      '100',
                                       style: TextStyle(
                                           fontFamily: FontConstants.fontFamily2,
                                           color: ColorManager.black,
@@ -219,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   children: [
                                     Text(
-                                      'Order Qty         :',
+                                      'Order Qty           :',
                                       style: TextStyle(
                                           fontFamily: FontConstants.fontFamily2,
                                           color: ColorManager.black,
