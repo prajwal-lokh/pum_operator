@@ -139,7 +139,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Item :  ',
+                                        'Items :  ',
                                         style: TextStyle(
                                             fontFamily:
                                                 FontConstants.fontFamily2,
