@@ -246,6 +246,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                     'email', _emailController.text);
 
                                 if (userRole == "Operator") {
+                                  // ignore: use_build_context_synchronously
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -254,15 +255,23 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                   // print('Admin screen');
                                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>D))
                                 } else {
-                                  print('Invalid User!');
-                                  // Display a message or redirect to a restricted access page
+                                  // ignore: use_build_context_synchronously
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return const AlertDialog(
+                                          title: Text(AppString.error),
+                                          content: Text('Invalid User!'),
+                                        );
+                                      });
                                 }
                               } on FirebaseAuthException catch (e) {
+                                // ignore: use_build_context_synchronously
                                 showDialog(
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
-                                        title: Text(AppString.errormsg),
+                                        title: const Text(AppString.error),
                                         content: Text(e.message!),
                                       );
                                     });
@@ -271,31 +280,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                             }
                           },
 
-                          //   if (_formKey.currentState!.validate()) {
-                          //     try {
-                          //       final user =
-                          //           await _auth.signInWithEmailAndPassword(
-                          //               email: _emailController.text,
-                          //               password: _passwordController.text);
-                          //       user != null
-                          //           ? Navigator.push(
-                          //               context,
-                          //               MaterialPageRoute(
-                          //                   builder: (context) => HomeScreen()))
-                          //           : print(AppString.error);
-                          //     } on FirebaseAuthException catch (e) {
-                          //       showDialog(
-                          //           context: context,
-                          //           builder: (context) {
-                          //             return AlertDialog(
-                          //               title: Text(AppString.errormsg),
-                          //               content: Text(e.message!),
-                          //             );
-                          //           });
-                          //       print(e.toString());
-                          //     }
-                          //   }
-                          // },
+
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
