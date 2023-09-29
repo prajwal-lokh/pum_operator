@@ -254,7 +254,15 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                   // print('Admin screen');
                                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>D))
                                 } else {
-                                  print('Invalid User!');
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text(AppString.errormsg),
+                                          content: Text('Invalid User!'),
+                                        );
+                                      });
+                                  //print('Invalid User!');
                                   // Display a message or redirect to a restricted access page
                                 }
                               } on FirebaseAuthException catch (e) {
