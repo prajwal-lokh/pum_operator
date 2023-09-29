@@ -28,7 +28,7 @@ class AppString {
   ///Thank you screen
   static const String thanku = "Thank you ";
   static const String thankusubtitle1 =
-      "You request for password change is\nsuccessfully processed.";
+      "Your request for password change is\nsuccessfully processed.";
   static const String thankusubtitle2 =
       "Please contact your admin for a new\npassword";
   static const String okay = "Okay";
