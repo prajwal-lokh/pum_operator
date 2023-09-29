@@ -95,6 +95,7 @@ class ThankYouScreen extends StatelessWidget {
                     height: AppSize.s36,
                     width: AppSize.s210,
                     child: ElevatedButton(
+                      autofocus: true,
                       focusNode: fieldOne,
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, Routes.LogIn);

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -16,6 +17,22 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _auth = FirebaseAuth.instance;
+  // String finalemail = "";
+
+  // Future getValidationData() async {
+  //   final SharedPreferences sharedPreferences =
+  //   await SharedPreferences.getInstance();
+  //   var obtainedEmail = sharedPreferences.getString('email');
+  //   setState(() {
+  //     finalemail = obtainedEmail!;
+  //   });
+  //   print(finalemail);
+  // }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getValidationData();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -99,178 +116,174 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                   child: Padding(
                 padding: const EdgeInsets.all(10),
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-                  child: GridView.builder(
-                      scrollDirection: Axis.vertical,
-                      
-                      itemCount: 5,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: MediaQuery.of(context).orientation ==
-                                Orientation.landscape
-                            ? 2
-                            : 2,
-                        crossAxisSpacing: 15,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: (2 / 1),
-                      ),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                            //height: MediaQuery.of(context).size.height / 250,
-                            decoration: BoxDecoration(
-                              color: ColorManager.sidebar,
-                              // borderRadius:
-                              //     const BorderRadius.all(Radius.circular(10)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black45
-                                      .withOpacity(0.2), // Shadow color
-                                  spreadRadius:
-                                      1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
-                                  blurRadius: 2, // The blur radius of the shadow
-                                  offset: Offset(0,
-                                      2), // The offset of the shadow from the box
+                child: GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 5,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: MediaQuery.of(context).orientation ==
+                              Orientation.landscape
+                          ? 2
+                          : 2,
+                      crossAxisSpacing: 15,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: (2 / 1),
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          //height: MediaQuery.of(context).size.height / 250,
+                          decoration: BoxDecoration(
+                            color: ColorManager.sidebar,
+                            // borderRadius:
+                            //     const BorderRadius.all(Radius.circular(10)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black45
+                                    .withOpacity(0.2), // Shadow color
+                                spreadRadius:
+                                    1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
+                                blurRadius: 2, // The blur radius of the shadow
+                                offset: Offset(0,
+                                    2), // The offset of the shadow from the box
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Order No : ',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.appbarcolor,
+                                          fontWeight: FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                    Text(
+                                      '12345678913',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.appbarcolor,
+                                          fontWeight: FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                  ],
                                 ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height / 100,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Material Code   :',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.black,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                    Text(
+                                      '100',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.black,
+                                          fontWeight: FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height / 100,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Order Qty           :',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.black,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                    Text(
+                                      '100',
+                                      style: TextStyle(
+                                          fontFamily: FontConstants.fontFamily2,
+                                          color: ColorManager.black,
+                                          fontWeight: FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              40),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height / 100,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                5,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                25,
+                                        child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          OperatorOrderScreen()));
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              shape: StadiumBorder(),
+                                              backgroundColor:
+                                                  ColorManager.buttongridecolor,
+                                            ),
+                                            child: Text(
+                                              'Add',
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      FontConstants.fontFamily2,
+                                                  color: ColorManager.faintblue,
+                                                  fontWeight:
+                                                      FontWeightManager.bold,
+                                                  fontSize: FontSize.s15),
+                                            )))
+                                  ],
+                                )
                               ],
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Order No : ',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.appbarcolor,
-                                            fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                      Text(
-                                        '12345678913',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.appbarcolor,
-                                            fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height / 100,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Material Code   :',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                      Text(
-                                        '10',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.black,
-                                            fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height / 100,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Order Qty         :',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                      Text(
-                                        '100',
-                                        style: TextStyle(
-                                            fontFamily: FontConstants.fontFamily2,
-                                            color: ColorManager.black,
-                                            fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                40),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height / 100,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      SizedBox(
-                                          width:
-                                              MediaQuery.of(context).size.width /
-                                                  5,
-                                          height:
-                                              MediaQuery.of(context).size.height /
-                                                  25,
-                                          child: ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            OperatorOrderScreen()));
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                shape: StadiumBorder(),
-                                                backgroundColor:
-                                                    ColorManager.buttongridecolor,
-                                              ),
-                                              child: Text(
-                                                'Add',
-                                                style: TextStyle(
-                                                    fontFamily:
-                                                        FontConstants.fontFamily2,
-                                                    color: ColorManager.faintblue,
-                                                    fontWeight:
-                                                        FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
-                                              )))
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ));
-                      }),
-                ),
+                          ));
+                    }),
               ))
             ],
           ),
