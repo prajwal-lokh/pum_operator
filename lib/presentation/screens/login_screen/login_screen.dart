@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/button_constant.dart';
 import '../../../resources/asset_manager.dart';
@@ -22,6 +23,24 @@ class LoginScreenAndroid extends StatefulWidget {
 }
 
 class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
+  Future<String> checkUserRoleByEmail(String email) async {
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        String role = querySnapshot.docs[0]['role'];
+        return role;
+      }
+      return "guest"; // Default role for users not found in the 'users' collection
+    } catch (e) {
+      print("Error checking user role by email: $e");
+      return "guest";
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -211,16 +230,33 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               try {
-                                final user =
-                                    await _auth.signInWithEmailAndPassword(
-                                        email: _emailController.text,
-                                        password: _passwordController.text);
-                                user != null
-                                    ? Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HomeScreen()))
-                                    : print(AppString.error);
+                                UserCredential authResult = await FirebaseAuth
+                                    .instance
+                                    .signInWithEmailAndPassword(
+                                  email: _emailController.text,
+                                  password: _passwordController.text,
+                                );
+
+                                String userEmail = authResult.user!.email!;
+                                String userRole =
+                                    await checkUserRoleByEmail(userEmail);
+                                final SharedPreferences sharedPreferences =
+                                    await SharedPreferences.getInstance();
+                                sharedPreferences.setString(
+                                    'email', _emailController.text);
+
+                                if (userRole == "Operator") {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const HomeScreen()));
+                                  // print('Admin screen');
+                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>D))
+                                } else {
+                                  print('Invalid User!');
+                                  // Display a message or redirect to a restricted access page
+                                }
                               } on FirebaseAuthException catch (e) {
                                 showDialog(
                                     context: context,
@@ -234,6 +270,32 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                               }
                             }
                           },
+
+                          //   if (_formKey.currentState!.validate()) {
+                          //     try {
+                          //       final user =
+                          //           await _auth.signInWithEmailAndPassword(
+                          //               email: _emailController.text,
+                          //               password: _passwordController.text);
+                          //       user != null
+                          //           ? Navigator.push(
+                          //               context,
+                          //               MaterialPageRoute(
+                          //                   builder: (context) => HomeScreen()))
+                          //           : print(AppString.error);
+                          //     } on FirebaseAuthException catch (e) {
+                          //       showDialog(
+                          //           context: context,
+                          //           builder: (context) {
+                          //             return AlertDialog(
+                          //               title: Text(AppString.errormsg),
+                          //               content: Text(e.message!),
+                          //             );
+                          //           });
+                          //       print(e.toString());
+                          //     }
+                          //   }
+                          // },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

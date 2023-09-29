@@ -35,16 +35,15 @@ class MyApp extends StatelessWidget {
             if (admin == true) {
               ///code For Web Application
               return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'PUM Operator',
-                theme: ThemeData(
-                  colorScheme:
-                      ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                  useMaterial3: true,
-                ),
-                home: LoginScreenAndroid(),
-              );
-              //home:  email == null ? LoginScreenAndroid() : HomeScreen());
+                  debugShowCheckedModeBanner: false,
+                  title: 'PUM Operator',
+                  theme: ThemeData(
+                    colorScheme:
+                        ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                    useMaterial3: true,
+                  ),
+                  home: email == null ? LoginScreenAndroid() : HomeScreen());
+              //home: email == null ? LoginScreenAndroid() : HomeScreen());
               // UserManagemntscreen());
               // );
             } else {
