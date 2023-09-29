@@ -277,6 +277,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                 print(e.toString());
                               }
                             }
+                            _emailController.clear();
+                            _passwordController.clear();
                           },
 
                           //   if (_formKey.currentState!.validate()) {
@@ -285,7 +287,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                           //           await _auth.signInWithEmailAndPassword(
                           //               email: _emailController.text,
                           //               password: _passwordController.text);
-                          //       user != null
+                          //       user != null+
                           //           ? Navigator.push(
                           //               context,
                           //               MaterialPageRoute(
