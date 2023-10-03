@@ -24,6 +24,7 @@ class AppString {
   static const String changepassbtn = "Request To Change Password";
   static const String forgotsubtitle11 = "Please enter your email and tap on ";
   static const String request = "Request.";
+  static const String forgetpopuptext = "Please contact your admin for changing the password.";
 
   ///Thank you screen
   static const String thanku = "Thank you ";

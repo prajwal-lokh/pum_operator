@@ -1,0 +1,26 @@
+[
+  {
+    "dbid": 1,
+    "operation" : "Welding (10)",
+
+    "items": "100"
+  },
+  {
+    "dbid": 2,
+    "operation" : "Boring (20)",
+
+    "items": "0"
+  },
+  {
+    "dbid": 3,
+    "operation" : "Auto Inspection (30)",
+
+    "items": "0"
+  },
+  {
+    "dbid": 4,
+    "operation" : "Manual Inspection (30)",
+
+    "items": "0"
+  }
+]

@@ -134,25 +134,27 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: AppPadding.p20),
-                        child: Text.rich(TextSpan(
-                            text: AppString.forgotsubtitle11,
-                            style: TextStyle(
-                                fontSize: FontSize.s15,
-                                fontFamily: FontConstants.fontFamily2,
-                                fontWeight: FontWeightManager.regular,
-                                color: ColorManager.faintgrey),
-                            children: <InlineSpan>[
-                              TextSpan(
-                                text: AppString.request,
-                                style: TextStyle(
-                                    fontSize: FontSize.s15,
-                                    fontFamily: FontConstants.fontFamily2,
-                                    fontWeight: FontWeightManager.bold,
-                                    color: ColorManager.grey),
-                              )
-                            ])),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(right: AppPadding.p20),
+                          child: Text.rich(TextSpan(
+                              text: AppString.forgotsubtitle11,
+                              style: TextStyle(
+                                  fontSize: FontSize.s15,
+                                  fontFamily: FontConstants.fontFamily2,
+                                  fontWeight: FontWeightManager.regular,
+                                  color: ColorManager.faintgrey),
+                              children: <InlineSpan>[
+                                TextSpan(
+                                  text: AppString.request,
+                                  style: TextStyle(
+                                      fontSize: FontSize.s15,
+                                      fontFamily: FontConstants.fontFamily2,
+                                      fontWeight: FontWeightManager.bold,
+                                      color: ColorManager.grey),
+                                )
+                              ])),
+                        ),
                       ),
                     ],
                   ),
