@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:pum_operator/presentation/screens/popup/forget_pass_popup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/button_constant.dart';
@@ -200,11 +201,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        ForgotPasswordScreen()));
+                            showDialog(context: context, builder: (_) => ForgetPopup());
                           },
                           child: Text(
                             AppString.forgetpass,
@@ -227,7 +224,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         width: AppSize.s290,
                         child: ElevatedButton(
                           focusNode: fieldThree,
-                          onPressed: () async {
+                          onPressed: ()  async {
+
                             if (_formKey.currentState!.validate()) {
                               try {
                                 UserCredential authResult = await FirebaseAuth

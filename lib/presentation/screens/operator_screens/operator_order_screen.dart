@@ -6,7 +6,7 @@ import 'package:pum_operator/presentation/modals/orders_modal.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
 import '../../../resources/value_manager.dart';
-import '../popup/operator_popups/popup.dart';
+import '../popup/popup.dart';
 
 class OperatorOrderScreen extends StatefulWidget {
   final String ordernum;
@@ -144,7 +144,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                               Text(
                                                 widget.ordernum,
@@ -153,7 +156,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                             ],
                                           ),
@@ -166,7 +172,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                               Text(
                                                 orders[index].items,
@@ -176,13 +185,16 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                     color: ColorManager.black,
                                                     fontWeight: FontWeightManager.bold,
 //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                             ],
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 15,
                                       ),
                                       Row(
@@ -200,7 +212,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize:MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                               SizedBox(
                                                 height:
@@ -215,7 +230,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                     color: ColorManager.black,
                                                     fontWeight: FontWeightManager.bold,
 //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize:MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                             ],
                                           ),
@@ -230,7 +248,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                               SizedBox(
                                                 height:
@@ -246,7 +267,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                     color: ColorManager.black,
                                                     fontWeight: FontWeightManager.bold,
 //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                             ],
                                           ),
@@ -262,7 +286,10 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s16),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               ),
                                               SizedBox(
                                                 height:
@@ -277,13 +304,16 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                     color: ColorManager.black,
                                                     fontWeight: FontWeightManager.bold,
 //fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                        40),
                                               )
                                             ],
                                           )
                                         ],
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 15,
                                       ),
                                       Row(
@@ -298,7 +328,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                               onPressed: () {
                                                 showDialog(
                                                     context: context,
-                                                    builder: (_) => PopUp());
+                                                    builder: (_) => PopUp(quantity: orders[index].items.toString(),));
                                               },
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor:
@@ -311,7 +341,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.appbarcolor,
                                                     fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize: MediaQuery.of(context).size.width / 40),
                                               ),
                                             ),
                                           ),
@@ -336,15 +366,12 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.white,
                                                     fontWeight: FontWeightManager.bold,
-                                                    fontSize: FontSize.s15),
+                                                    fontSize:MediaQuery.of(context).size.width / 40),
                                               ),
                                             ),
                                           ),
                                         ],
                                       ),
-                                      // SizedBox(
-                                      //   height: 15,
-                                      // ),
                                     ],
                                   ),
                                 ),

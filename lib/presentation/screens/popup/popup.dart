@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/font_manager.dart';
-import '../../../../resources/value_manager.dart';
+import '../../../resources/color_manager.dart';
+import '../../../resources/font_manager.dart';
+import '../../../resources/value_manager.dart';
 
 class PopUp extends StatefulWidget {
-  PopUp({super.key});
+  final String quantity;
+  PopUp({super.key, required this.quantity});
 
   @override
   State<PopUp> createState() => _PopUpState();
@@ -59,9 +60,9 @@ class _PopUpState extends State<PopUp> {
                                   height:
                                       MediaQuery.of(context).size.height / 55,
                                 ),
-                                Text(
-                                  '100',
-                                  style: TextStyle(
+                                 Text(
+                                  widget.quantity,
+                                  style: const TextStyle(
                                       fontSize: FontSize.s15,
                                       fontFamily: FontConstants.fontFamily2,
                                       fontWeight: FontWeightManager.bold),
@@ -86,14 +87,14 @@ class _PopUpState extends State<PopUp> {
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width /
-                                              70,
+                                              50,
                                           fontFamily: FontConstants.fontFamily2,
                                           fontWeight:
                                               FontWeightManager.regular),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
-                                          13,
+                                          18,
                                     ),
                                     Text(
                                       'Rework',
@@ -101,14 +102,14 @@ class _PopUpState extends State<PopUp> {
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width /
-                                              70,
+                                              50,
                                           fontFamily: FontConstants.fontFamily2,
                                           fontWeight:
                                               FontWeightManager.regular),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
-                                          15,
+                                          20,
                                     ),
                                     Text(
                                       'Rejection',
@@ -116,30 +117,11 @@ class _PopUpState extends State<PopUp> {
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width /
-                                              70,
+                                              50,
                                           fontFamily: FontConstants.fontFamily2,
                                           fontWeight:
                                               FontWeightManager.regular),
                                     ),
-                                    // SizedBox(
-                                    //   height: AppSize.s45,
-                                    //   width: MediaQuery.of(context).size.width / 4.5,
-                                    //   child: TextFormField(
-                                    //     textAlign: TextAlign.start,
-                                    //     textAlignVertical: TextAlignVertical.bottom,
-                                    //     controller: _NumberController,
-                                    //     keyboardType: TextInputType.number,
-                                    //     decoration: InputDecoration(
-                                    //       hintText: '100',
-                                    //       hintStyle: TextStyle(
-                                    //           fontWeight: FontWeightManager.bold),
-                                    //       // hintText: AppString.email,
-                                    //       border: OutlineInputBorder(
-                                    //         borderRadius: BorderRadius.circular(10),
-                                    //       ),
-                                    //     ),
-                                    //   ),
-                                    // )
                                   ],
                                 ),
 
@@ -541,14 +523,16 @@ class _PopUpState extends State<PopUp> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 7,
                                 height: MediaQuery.of(context).size.height / 20,
-                                child: ElevatedButton(
-                                  onPressed: () {},
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: ColorManager.appbarcolor,
                                   ),
