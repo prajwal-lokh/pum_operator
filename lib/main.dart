@@ -8,11 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
    WidgetsFlutterBinding.ensureInitialized();
    await Firebase.initializeApp(
-      options: FirebaseOptions(
-          apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
-          appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
-          messagingSenderId: "748212548066",
-          projectId: "phoenixmecano-dev")
+      // options: FirebaseOptions(
+      //     apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
+      //     appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
+      //     messagingSenderId: "748212548066",
+      //     projectId: "phoenixmecano-dev")
    );
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   var email = sharedPreferences.getString('email');
@@ -21,7 +21,6 @@ Future<void> main() async {
   ));
 }
 
-//
 class MyApp extends StatelessWidget {
   var email;
   MyApp({this.email, super.key});
@@ -90,5 +89,6 @@ class MyApp extends StatelessWidget {
             );
           }
         });
+
   }
 }
