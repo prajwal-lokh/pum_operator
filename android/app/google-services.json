@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "748212548066",
+    "project_id": "phoenixmecano-dev",
+    "storage_bucket": "phoenixmecano-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748212548066:android:e9c2a934be83174c1cc9bb",
+        "android_client_info": {
+          "package_name": "com.example.pheonix_mechano_native"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748212548066-0hmlm1sucbrjhfpevjrn9h52q9gvdf1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDyOcT4qnctAgwhSNiIz7YzUYskKC3xPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748212548066-0hmlm1sucbrjhfpevjrn9h52q9gvdf1g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "748212548066-hrrca67c8s5ch55jaircngpdnl7ri2f4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pheonixMechanoNative.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

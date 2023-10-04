@@ -5,14 +5,15 @@ import 'package:pum_operator/presentation/screens/login_screen/login_screen.dart
 import 'package:pum_operator/presentation/screens/operator_screens/operator_order_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options: const FirebaseOptions(
+Future<void> main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(
+      options: FirebaseOptions(
           apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
           appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
           messagingSenderId: "748212548066",
-          projectId: "phoenixmecano-dev"));
+          projectId: "phoenixmecano-dev")
+   );
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   var email = sharedPreferences.getString('email');
   runApp(MyApp(
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
                         ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                     useMaterial3: true,
                   ),
-                  home: email == null ? LoginScreenAndroid() : HomeScreen());
+                  home: LoginScreenAndroid());
+                  //email == null ? LoginScreenAndroid() : HomeScreen());
               //home: email == null ? LoginScreenAndroid() : HomeScreen());
               // UserManagemntscreen());
               // );

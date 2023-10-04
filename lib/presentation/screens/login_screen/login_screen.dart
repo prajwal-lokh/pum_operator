@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:pum_operator/presentation/screens/popup/forget_pass_popup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/button_constant.dart';
@@ -200,11 +201,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        ForgotPasswordScreen()));
+                            showDialog(context: context, builder: (_) => ForgetPopup());
                           },
                           child: Text(
                             AppString.forgetpass,
@@ -227,7 +224,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         width: AppSize.s290,
                         child: ElevatedButton(
                           focusNode: fieldThree,
-                          onPressed: () async {
+                          onPressed: ()  async {
+
                             if (_formKey.currentState!.validate()) {
                               try {
                                 UserCredential authResult = await FirebaseAuth
@@ -246,6 +244,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                     'email', _emailController.text);
 
                                 if (userRole == "Operator") {
+                                  // ignore: use_build_context_synchronously
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -254,58 +253,32 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                   // print('Admin screen');
                                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>D))
                                 } else {
+                                  // ignore: use_build_context_synchronously
                                   showDialog(
                                       context: context,
                                       builder: (context) {
-                                        return AlertDialog(
-                                          title: Text(AppString.errormsg),
+                                        return const AlertDialog(
+                                          title: Text(AppString.error),
                                           content: Text('Invalid User!'),
                                         );
                                       });
-                                  //print('Invalid User!');
-                                  // Display a message or redirect to a restricted access page
                                 }
                               } on FirebaseAuthException catch (e) {
+                                // ignore: use_build_context_synchronously
                                 showDialog(
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
-                                        title: Text(AppString.errormsg),
+                                        title: const Text(AppString.error),
                                         content: Text(e.message!),
                                       );
                                     });
                                 print(e.toString());
                               }
                             }
-                            _emailController.clear();
-                            _passwordController.clear();
                           },
 
-                          //   if (_formKey.currentState!.validate()) {
-                          //     try {
-                          //       final user =
-                          //           await _auth.signInWithEmailAndPassword(
-                          //               email: _emailController.text,
-                          //               password: _passwordController.text);
-                          //       user != null+
-                          //           ? Navigator.push(
-                          //               context,
-                          //               MaterialPageRoute(
-                          //                   builder: (context) => HomeScreen()))
-                          //           : print(AppString.error);
-                          //     } on FirebaseAuthException catch (e) {
-                          //       showDialog(
-                          //           context: context,
-                          //           builder: (context) {
-                          //             return AlertDialog(
-                          //               title: Text(AppString.errormsg),
-                          //               content: Text(e.message!),
-                          //             );
-                          //           });
-                          //       print(e.toString());
-                          //     }
-                          //   }
-                          // },
+
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
