@@ -16,6 +16,11 @@ class _PopUpState extends State<PopUp> {
   TextEditingController _NumberController = TextEditingController();
   String? valueChoose;
 
+  FocusNode fieldOne = FocusNode();
+  FocusNode fieldTow = FocusNode();
+  FocusNode fieldThree = FocusNode();
+  FocusNode fieldFour = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -135,7 +140,12 @@ class _PopUpState extends State<PopUp> {
                                           10,
                                       alignment: Alignment.center,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldOne,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldTow);
+                                        },
+                                        // cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -161,7 +171,12 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldTow,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldThree);
+                                        },
+                                        //cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -188,7 +203,12 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldThree,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldFour);
+                                        },
+                                        // cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -529,6 +549,8 @@ class _PopUpState extends State<PopUp> {
                                 width: MediaQuery.of(context).size.width / 7,
                                 height: MediaQuery.of(context).size.height / 20,
                                 child: TextButton(
+                                  autofocus: true,
+                                  focusNode: fieldFour,
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
