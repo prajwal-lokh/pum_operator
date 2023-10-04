@@ -166,7 +166,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           Row(
                                             children: [
                                               Text(
-                                                'Item :  ',
+                                                'Items :  ',
                                                 style: TextStyle(
                                                     fontFamily:
                                                         FontConstants.fontFamily2,
@@ -184,7 +184,6 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                         FontConstants.fontFamily2,
                                                     color: ColorManager.black,
                                                     fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
                                                     fontSize: MediaQuery.of(context)
                                                         .size
                                                         .width /
