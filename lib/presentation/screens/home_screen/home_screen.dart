@@ -110,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     future:  DefaultAssetBundle.of(context).loadString('assets/operator_sample.json'),
                     builder: (context, snapshot) {
                       List? data1 = json.decode(snapshot.data.toString());
+                      operatormodal = [];
                       data1?.forEach((element) {
                         print(element["dbid"]);
                         operatormodal.add(OperatorModal(
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                       return GridView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: 5,
+                          itemCount: operatormodal.length,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: MediaQuery.of(context).orientation ==
                                     Orientation.landscape
