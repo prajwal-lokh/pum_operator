@@ -15,7 +15,6 @@ class PopUp extends StatefulWidget {
 class _PopUpState extends State<PopUp> {
   TextEditingController _NumberController = TextEditingController();
   String? valueChoose;
-  // List ListItems = ["Item 1", "Item 2", "Item 3"];
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class _PopUpState extends State<PopUp> {
                                   height:
                                       MediaQuery.of(context).size.height / 55,
                                 ),
-                                 Text(
+                                Text(
                                   widget.quantity,
                                   style: const TextStyle(
                                       fontSize: FontSize.s15,
