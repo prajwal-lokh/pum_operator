@@ -201,7 +201,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            showDialog(context: context, builder: (_) => ForgetPopup());
+                            showDialog(
+                                context: context,
+                                builder: (_) => ForgetPopup());
                           },
                           child: Text(
                             AppString.forgetpass,
@@ -224,7 +226,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         width: AppSize.s290,
                         child: ElevatedButton(
                           focusNode: fieldThree,
-                          onPressed: ()  async {
+                          onPressed: () async {
                             setState(() {
                               showSpinner = true;
                             });
@@ -245,7 +247,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                     await SharedPreferences.getInstance();
                                 sharedPreferences.setString(
                                     'email', _emailController.text);
-                                await Center(child: CircularProgressIndicator(),);
+                                await Center(
+                                  child: CircularProgressIndicator(),
+                                );
 
                                 if (userRole == "Operator") {
                                   // ignore: use_build_context_synchronously
@@ -286,10 +290,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                               _emailController.clear();
                               _passwordController.clear();
                             }
-
                           },
-
-
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
