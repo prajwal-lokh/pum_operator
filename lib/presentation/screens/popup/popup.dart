@@ -129,7 +129,6 @@ class _PopUpState extends State<PopUp> {
                                     ),
                                   ],
                                 ),
-
                                 ///txtfield
                                 Row(
                                   children: [
