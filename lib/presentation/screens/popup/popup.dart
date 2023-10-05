@@ -15,7 +15,11 @@ class PopUp extends StatefulWidget {
 class _PopUpState extends State<PopUp> {
   TextEditingController _NumberController = TextEditingController();
   String? valueChoose;
-  // List ListItems = ["Item 1", "Item 2", "Item 3"];
+
+  FocusNode fieldOne = FocusNode();
+  FocusNode fieldTow = FocusNode();
+  FocusNode fieldThree = FocusNode();
+  FocusNode fieldFour = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +64,7 @@ class _PopUpState extends State<PopUp> {
                                   height:
                                       MediaQuery.of(context).size.height / 55,
                                 ),
-                                 Text(
+                                Text(
                                   widget.quantity,
                                   style: const TextStyle(
                                       fontSize: FontSize.s15,
@@ -136,7 +140,12 @@ class _PopUpState extends State<PopUp> {
                                           10,
                                       alignment: Alignment.center,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldOne,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldTow);
+                                        },
+                                        // cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -162,7 +171,12 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldTow,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldThree);
+                                        },
+                                        //cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -189,7 +203,12 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        cursorHeight: 18,
+                                        focusNode: fieldThree,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldFour);
+                                        },
+                                        // cursorHeight: 18,
                                         textAlign: TextAlign.start,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -530,6 +549,8 @@ class _PopUpState extends State<PopUp> {
                                 width: MediaQuery.of(context).size.width / 7,
                                 height: MediaQuery.of(context).size.height / 20,
                                 child: TextButton(
+                                  autofocus: true,
+                                  focusNode: fieldFour,
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },

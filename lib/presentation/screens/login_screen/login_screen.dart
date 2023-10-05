@@ -42,13 +42,13 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
     }
   }
 
+  bool showSpinner = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   late String email;
   late String Password;
-  bool showSpinner = false;
   String password = '';
   bool isPasswordVisible = true;
 
@@ -225,6 +225,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         child: ElevatedButton(
                           focusNode: fieldThree,
                           onPressed: ()  async {
+                            setState(() {
+                              showSpinner = true;
+                            });
 
                             if (_formKey.currentState!.validate()) {
                               try {
@@ -242,6 +245,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                     await SharedPreferences.getInstance();
                                 sharedPreferences.setString(
                                     'email', _emailController.text);
+                                await Center(child: CircularProgressIndicator(),);
 
                                 if (userRole == "Operator") {
                                   // ignore: use_build_context_synchronously
@@ -263,6 +267,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                         );
                                       });
                                 }
+                                setState(() {
+                                  showSpinner = false;
+                                });
                               } on FirebaseAuthException catch (e) {
                                 // ignore: use_build_context_synchronously
                                 showDialog(
@@ -275,7 +282,11 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                     });
                                 print(e.toString());
                               }
+
+                              _emailController.clear();
+                              _passwordController.clear();
                             }
+
                           },
 
 
