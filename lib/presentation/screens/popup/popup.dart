@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -17,7 +18,7 @@ class _PopUpState extends State<PopUp> {
   String? valueChoose;
 
   FocusNode fieldOne = FocusNode();
-  FocusNode fieldTow = FocusNode();
+  FocusNode fieldTwo = FocusNode();
   FocusNode fieldThree = FocusNode();
   FocusNode fieldFour = FocusNode();
 
@@ -140,10 +141,9 @@ class _PopUpState extends State<PopUp> {
                                           10,
                                       alignment: Alignment.center,
                                       child: TextFormField(
-                                        focusNode: fieldOne,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldTow);
+                                        focusNode : fieldOne,
+                                        onFieldSubmitted : (value){
+                                          FocusScope.of(context).requestFocus(fieldTwo);
                                         },
                                         // cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -158,6 +158,7 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
+                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                       ),
                                     ),
                                     SizedBox(
@@ -171,10 +172,9 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        focusNode: fieldTow,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldThree);
+                                        focusNode : fieldTwo,
+                                        onFieldSubmitted : (value){
+                                          FocusScope.of(context).requestFocus(fieldThree);
                                         },
                                         //cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -189,6 +189,7 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
+                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                       ),
                                     ),
                                     SizedBox(
@@ -203,10 +204,9 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        focusNode: fieldThree,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldFour);
+                                        focusNode : fieldThree,
+                                        onFieldSubmitted : (value){
+                                          FocusScope.of(context).requestFocus(fieldFour);
                                         },
                                         // cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -221,6 +221,8 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
+                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+
                                       ),
                                     )
                                   ],
