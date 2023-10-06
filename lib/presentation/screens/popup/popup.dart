@@ -100,7 +100,7 @@ class _PopUpState extends State<PopUp> {
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
-                                          18,
+                                          15,
                                     ),
                                     Text(
                                       AppString.rework,
