@@ -6,14 +6,13 @@ import 'package:pum_operator/presentation/screens/operator_screens/operator_orde
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-   WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp(
-      // options: FirebaseOptions(
-      //     apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
-      //     appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
-      //     messagingSenderId: "748212548066",
-      //     projectId: "phoenixmecano-dev")
-   );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
+          appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
+          messagingSenderId: "748212548066",
+          projectId: "phoenixmecano-dev"));
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   var email = sharedPreferences.getString('email');
   runApp(MyApp(
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            if (admin == true) {
+            if (admin == false) {
               ///code For Web Application
               return MaterialApp(
                   debugShowCheckedModeBanner: false,
@@ -42,8 +41,7 @@ class MyApp extends StatelessWidget {
                         ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                     useMaterial3: true,
                   ),
-                  home: LoginScreenAndroid());
-                  //email == null ? LoginScreenAndroid() : HomeScreen());
+                  home: email == null ? LoginScreenAndroid() : HomeScreen());
               //home: email == null ? LoginScreenAndroid() : HomeScreen());
               // UserManagemntscreen());
               // );
@@ -89,6 +87,5 @@ class MyApp extends StatelessWidget {
             );
           }
         });
-
   }
 }

@@ -267,7 +267,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                       builder: (context) {
                                         return const AlertDialog(
                                           title: Text(AppString.error),
-                                          content: Text('Invalid User!'),
+                                          content: Text(AppString.invaliduser),
                                         );
                                       });
                                 }

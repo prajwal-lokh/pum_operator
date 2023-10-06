@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pum_operator/presentation/modals/operator_modal.dart';
+import 'package:pum_operator/resources/string_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../resources/color_manager.dart';
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: AppSize.s0,
           actions: [
             Text(
-              'LogOut',
+              AppString.logout,
               style: TextStyle(
                 fontFamily: FontConstants.fontFamily1,
                 color: ColorManager.white,
@@ -63,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     size: AppSize.s65,
                   ),
                   Text(
-                    'Vishal More',
+                    AppString.vishalmore,
                     style: TextStyle(
                         fontFamily: FontConstants.fontFamily2,
                         color: ColorManager.navyblue,
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: FontSize.s16),
                   ),
                   Text(
-                    'Operator ( 2nd Shift )',
+                    AppString.operatorshift,
                     style: TextStyle(
                         fontFamily: FontConstants.fontFamily2,
                         color: ColorManager.black,
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   children: [
                     Text(
-                      'Orders',
+                      AppString.orders,
                       style: TextStyle(
                           fontFamily: FontConstants.fontFamily2,
                           color: ColorManager.black,
@@ -103,196 +104,241 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Expanded(
                   child: ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-                    child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: FutureBuilder(
-                    future:  DefaultAssetBundle.of(context).loadString('assets/operator_sample.json'),
-                    builder: (context, snapshot) {
-                      List? data1 = json.decode(snapshot.data.toString());
-                      operatormodal = [];
-                      data1?.forEach((element) {
-                        print(element["dbid"]);
-                        operatormodal.add(OperatorModal(
-                            materialcode: element["materialcode"],
-                            orderno: element["orderno"],
-                            orderqty: element["orderqty"]
-                            ));
-                      });
-                      return GridView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: operatormodal.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: MediaQuery.of(context).orientation ==
-                                    Orientation.landscape
-                                ? 2
-                                : 2,
-                            crossAxisSpacing: 15,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: (2 / 1),
-                          ),
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                                //height: MediaQuery.of(context).size.height / 250,
-                                decoration: BoxDecoration(
-                                  color: ColorManager.sidebar,
-                                  // borderRadius:
-                                  //     const BorderRadius.all(Radius.circular(10)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black45
-                                          .withOpacity(0.2), // Shadow color
-                                      spreadRadius:
-                                          1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
-                                      blurRadius: 2, // The blur radius of the shadow
-                                      offset: Offset(0,
-                                          2), // The offset of the shadow from the box
-                                    ),
-                                  ],
-                                ),
-                                child: ListView(
-                                  children:[ Padding(
-                                    padding: const EdgeInsets.all(6.0),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'Order No : ',
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.appbarcolor,
-                                                  fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                            Text(
-                                              operatormodal[index].orderno,
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.appbarcolor,
-                                                  fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height:
-                                              MediaQuery.of(context).size.height / 100,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'Material Code   :',
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                            Text(
-                                              operatormodal[index].materialcode,
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height:
-                                              MediaQuery.of(context).size.height / 100,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'Order Qty           :',
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                            Text(
-                                              operatormodal[index].orderqty,
-                                              style: TextStyle(
-                                                  fontFamily: FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight: FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      40),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height:
-                                              MediaQuery.of(context).size.height / 100,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            SizedBox(
-                                                width:
-                                                    MediaQuery.of(context).size.width /
-                                                        5,
-                                                height:
-                                                    MediaQuery.of(context).size.height /
-                                                        25,
-                                                child: ElevatedButton(
-                                                    onPressed: () {
-                                                      Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  OperatorOrderScreen(ordernum: operatormodal[index].orderno.toString(),)));
-                                                    },
-                                                    style: ElevatedButton.styleFrom(
-                                                      shape: StadiumBorder(),
-                                                      backgroundColor:
-                                                          ColorManager.buttongridecolor,
-                                                    ),
-                                                    child: Text(
-                                                      'Add',
-                                                      style: TextStyle(
-                                                          fontFamily:
-                                                              FontConstants.fontFamily2,
-                                                          color: ColorManager.faintblue,
-                                                          fontWeight:
-                                                              FontWeightManager.bold,
-                                                          fontSize: MediaQuery.of(context).size.width / 40),
-                                                    )))
-                                          ],
-                                        )
-                                      ],
-                                    ),
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: FutureBuilder(
+                      future: DefaultAssetBundle.of(context)
+                          .loadString('assets/operator_sample.json'),
+                      builder: (context, snapshot) {
+                        List? data1 = json.decode(snapshot.data.toString());
+                        operatormodal = [];
+                        data1?.forEach((element) {
+                          print(element["dbid"]);
+                          operatormodal.add(OperatorModal(
+                              materialcode: element["materialcode"],
+                              orderno: element["orderno"],
+                              orderqty: element["orderqty"]));
+                        });
+                        return GridView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: operatormodal.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount:
+                                  MediaQuery.of(context).orientation ==
+                                          Orientation.landscape
+                                      ? 2
+                                      : 2,
+                              crossAxisSpacing: 15,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: (2 / 1),
+                            ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                  //height: MediaQuery.of(context).size.height / 250,
+                                  decoration: BoxDecoration(
+                                    color: ColorManager.sidebar,
+                                    // borderRadius:
+                                    //     const BorderRadius.all(Radius.circular(10)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black45
+                                            .withOpacity(0.2), // Shadow color
+                                        spreadRadius:
+                                            1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
+                                        blurRadius:
+                                            2, // The blur radius of the shadow
+                                        offset: Offset(0,
+                                            2), // The offset of the shadow from the box
+                                      ),
+                                    ],
                                   ),
-                                ]));
-                          });
-                    }
+                                  child: ListView(children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(6.0),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                AppString.orderoo,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager
+                                                        .appbarcolor,
+                                                    fontWeight:
+                                                        FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                              Text(
+                                                operatormodal[index].orderno,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager
+                                                        .appbarcolor,
+                                                    fontWeight:
+                                                        FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                100,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                AppString.materialcode,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager.black,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                              Text(
+                                                operatormodal[index]
+                                                    .materialcode,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager.black,
+                                                    fontWeight:
+                                                        FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                100,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                AppString.orderqty,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager.black,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                              Text(
+                                                operatormodal[index].orderqty,
+                                                style: TextStyle(
+                                                    fontFamily: FontConstants
+                                                        .fontFamily2,
+                                                    color: ColorManager.black,
+                                                    fontWeight:
+                                                        FontWeightManager.bold,
+//fontWeight: FontWeightManager.bold,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width /
+                                                            40),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                100,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              SizedBox(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width /
+                                                      5,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height /
+                                                      25,
+                                                  child: ElevatedButton(
+                                                      onPressed: () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        OperatorOrderScreen(
+                                                                          ordernum: operatormodal[index]
+                                                                              .orderno
+                                                                              .toString(),
+                                                                        )));
+                                                      },
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        shape: StadiumBorder(),
+                                                        backgroundColor:
+                                                            ColorManager
+                                                                .buttongridecolor,
+                                                      ),
+                                                      child: Text(
+                                                        AppString.add,
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                FontConstants
+                                                                    .fontFamily2,
+                                                            color: ColorManager
+                                                                .faintblue,
+                                                            fontWeight:
+                                                                FontWeightManager
+                                                                    .bold,
+                                                            fontSize: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                40),
+                                                      )))
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ]));
+                            });
+                      }),
                 ),
-              ),
-                  ))
+              ))
             ],
           ),
         ));

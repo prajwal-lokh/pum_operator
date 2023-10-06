@@ -5,6 +5,7 @@ class AppString {
   static const String password = "Password";
   static const String forgetpass = "Forget Password?";
   static const String signin = "Sign In";
+  static const String invaliduser = 'Invalid User!';
 
   static const String Enteremail = "Enter email";
   static const String Entervalidemail = "Enter valid email";
@@ -24,7 +25,8 @@ class AppString {
   static const String changepassbtn = "Request To Change Password";
   static const String forgotsubtitle11 = "Please enter your email and tap on ";
   static const String request = "Request.";
-  static const String forgetpopuptext = "Please contact your admin for changing the password.";
+  static const String forgetpopuptext =
+      "Please contact your admin for changing the password.";
 
   ///Thank you screen
   static const String thanku = "Thank you ";
@@ -37,7 +39,11 @@ class AppString {
 
   ///Home Screen
   static const String home = "Home";
+  static const String logout = "LogOut";
   static const String notFoundRoute = "Page Not Found";
+  static const String orders = 'Orders';
+  static const String materialcode = 'Material Code   :';
+  static const String orderqty = 'Order Qty           :';
 
   /// Dashbord  Screen
   static const String Dashbordhead = "Dashboard";
@@ -54,6 +60,28 @@ class AppString {
   static const String operator = "Operator";
   static const String register = "Register";
   static const String cancle = "Cancel";
-  static const String enterusername = "Enter username";
+  static const String enterusername = "Enter username ";
   static const String passnotmatch = "Password do not match";
+
+  ///operator order screen
+  static const String operatoroo = "Operation :";
+  static const String orderoo = 'Order No :';
+  static const String itemsoo = 'Items :  ';
+  static const String yield = 'Yield';
+  static const String rework = 'Rework';
+  static const String rejection = 'Rejection';
+
+  /// common string
+  static const String edit = 'Edit';
+  static const String save = 'Save';
+  static const String vishalmore = 'Vishal More';
+  static const String operatorshift = 'Operator ( 2nd Shift )';
+  static const String add = 'Add';
+
+  ///popup string
+  static const String operationquantity = 'Operation Quantity';
+  // static const String edit =
+  //     static const String edit =
+  //     static const String edit =
+  //     static const String edit =
 }
