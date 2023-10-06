@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pum_operator/resources/string_manager.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -54,7 +55,7 @@ class _PopUpState extends State<PopUp> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Operation Quantity',
+                                  AppString.operationquantity,
                                   style: TextStyle(
                                       color: ColorManager.faintb,
                                       fontSize: FontSize.s15,
@@ -87,7 +88,7 @@ class _PopUpState extends State<PopUp> {
                                           120,
                                     ),
                                     Text(
-                                      'Yield',
+                                      AppString.yield,
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -102,7 +103,7 @@ class _PopUpState extends State<PopUp> {
                                           18,
                                     ),
                                     Text(
-                                      'Rework',
+                                      AppString.rework,
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -117,7 +118,7 @@ class _PopUpState extends State<PopUp> {
                                           20,
                                     ),
                                     Text(
-                                      'Rejection',
+                                      AppString.rejection,
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -141,9 +142,10 @@ class _PopUpState extends State<PopUp> {
                                           10,
                                       alignment: Alignment.center,
                                       child: TextFormField(
-                                        focusNode : fieldOne,
-                                        onFieldSubmitted : (value){
-                                          FocusScope.of(context).requestFocus(fieldTwo);
+                                        focusNode: fieldOne,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldTwo);
                                         },
                                         // cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -158,7 +160,9 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
-                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ],
                                       ),
                                     ),
                                     SizedBox(
@@ -172,9 +176,10 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        focusNode : fieldTwo,
-                                        onFieldSubmitted : (value){
-                                          FocusScope.of(context).requestFocus(fieldThree);
+                                        focusNode: fieldTwo,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldThree);
                                         },
                                         //cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -189,7 +194,9 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
-                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ],
                                       ),
                                     ),
                                     SizedBox(
@@ -204,9 +211,10 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       child: TextFormField(
-                                        focusNode : fieldThree,
-                                        onFieldSubmitted : (value){
-                                          FocusScope.of(context).requestFocus(fieldFour);
+                                        focusNode: fieldThree,
+                                        onFieldSubmitted: (value) {
+                                          FocusScope.of(context)
+                                              .requestFocus(fieldFour);
                                         },
                                         // cursorHeight: 18,
                                         textAlign: TextAlign.start,
@@ -221,8 +229,9 @@ class _PopUpState extends State<PopUp> {
                                                 BorderRadius.circular(10),
                                           ),
                                         ),
-                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ],
                                       ),
                                     )
                                   ],
@@ -533,7 +542,7 @@ class _PopUpState extends State<PopUp> {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Cancel',
+                                    AppString.cancle,
                                     style: TextStyle(
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.faintblue,
@@ -560,7 +569,7 @@ class _PopUpState extends State<PopUp> {
                                     backgroundColor: ColorManager.appbarcolor,
                                   ),
                                   child: Text(
-                                    'Save',
+                                    AppString.save,
                                     style: TextStyle(
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.white,
