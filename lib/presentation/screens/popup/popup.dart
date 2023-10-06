@@ -154,6 +154,7 @@ class _PopUpState extends State<PopUp> {
                                         // controller: _NumberController,
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
                                             borderRadius:
@@ -188,6 +189,7 @@ class _PopUpState extends State<PopUp> {
                                         // controller: _NumberController,
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
                                             borderRadius:
@@ -223,6 +225,7 @@ class _PopUpState extends State<PopUp> {
                                         // controller: _NumberController,
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
                                             borderRadius:
