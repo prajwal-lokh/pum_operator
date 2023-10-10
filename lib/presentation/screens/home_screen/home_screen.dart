@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pum_operator/presentation/modals/operator_modal.dart';
 import 'package:pum_operator/resources/string_manager.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:pum_operator/resources/theme_manager.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
 import '../../../resources/value_manager.dart';
@@ -38,8 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                 fontFamily: FontConstants.fontFamily1,
                 color: ColorManager.white,
-                // fontWeight: FontWeightManager.bold,
-                //fontSize: FontSize.s20,
               ),
             ),
             IconButton(
@@ -65,19 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Text(
                     AppString.vishalmore,
-                    style: TextStyle(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.navyblue,
-                        //fontWeight: FontWeightManager.bold,
-                        fontSize: FontSize.s16),
+                    style: ThemeManager.customTextStyle(color: ColorManager.navyblue)
                   ),
                   Text(
                     AppString.operatorshift,
-                    style: TextStyle(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        //fontWeight: FontWeightManager.bold,
-                        fontSize: FontSize.s16),
+                    style: ThemeManager.customTextStyle(color: ColorManager.black)
                   ),
                 ],
               ),
@@ -90,11 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       AppString.orders,
-                      style: TextStyle(
-                          fontFamily: FontConstants.fontFamily2,
-                          color: ColorManager.black,
-                          fontWeight: FontWeightManager.bold,
-                          fontSize: FontSize.s20),
+                      style: RandomConstant.customTextStyle(
+                          FontSize.s20,
+                          FontConstants.fontFamily2,
+                          FontWeightManager.bold,ColorManager.black,)
                     ),
                   ],
                 ),
@@ -137,21 +125,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
-                                  //height: MediaQuery.of(context).size.height / 250,
                                   decoration: BoxDecoration(
                                     color: ColorManager.sidebar,
-                                    // borderRadius:
-                                    //     const BorderRadius.all(Radius.circular(10)),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.black45
                                             .withOpacity(0.2), // Shadow color
                                         spreadRadius:
-                                            1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
+                                            1,
                                         blurRadius:
-                                            2, // The blur radius of the shadow
+                                            2,
                                         offset: Offset(0,
-                                            2), // The offset of the shadow from the box
+                                            2),
                                       ),
                                     ],
                                   ),
@@ -164,35 +149,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                             children: [
                                               Text(
                                                 AppString.orderoo,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager
-                                                        .appbarcolor,
-                                                    fontWeight:
-                                                        FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
                                               ),
                                               Text(
                                                 operatormodal[index].orderno,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager
-                                                        .appbarcolor,
-                                                    fontWeight:
-                                                        FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
                                               ),
                                             ],
                                           ),
@@ -206,32 +167,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                             children: [
                                               Text(
                                                 AppString.materialcode,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
                                               ),
                                               Text(
-                                                operatormodal[index]
-                                                    .materialcode,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager.black,
-                                                    fontWeight:
-                                                        FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                operatormodal[index].materialcode,
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
                                               ),
                                             ],
                                           ),
@@ -245,31 +185,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                             children: [
                                               Text(
                                                 AppString.orderqty,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager.black,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
                                               ),
                                               Text(
                                                 operatormodal[index].orderqty,
-                                                style: TextStyle(
-                                                    fontFamily: FontConstants
-                                                        .fontFamily2,
-                                                    color: ColorManager.black,
-                                                    fontWeight:
-                                                        FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width /
-                                                            40),
+                                                style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
                                               ),
                                             ],
                                           ),
@@ -314,20 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       ),
                                                       child: Text(
                                                         AppString.add,
-                                                        style: TextStyle(
-                                                            fontFamily:
-                                                                FontConstants
-                                                                    .fontFamily2,
-                                                            color: ColorManager
-                                                                .faintblue,
-                                                            fontWeight:
-                                                                FontWeightManager
-                                                                    .bold,
-                                                            fontSize: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                40),
+                                                        style: HomeOperatorConstant.customTextStyle(context,ColorManager.faintblue )
                                                       )))
                                             ],
                                           )
@@ -345,73 +252,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// Card(
-// shape: RoundedRectangleBorder(
-// borderRadius: BorderRadius.circular(10)),
-// elevation: 4,
-// child: Column(
-// children: [
-// ClipRRect(
-// borderRadius: const BorderRadius.only(
-// topLeft: Radius.circular(10),
-// topRight: Radius.circular(10),
-// ),
-// ),
-// Container(
-// child: Padding(
-// padding: const EdgeInsets.all(12),
-// child: Column(
-// children: [
-// Row(
-// children: [
-// Text(
-// 'Order No : 12345678912',
-// style: TextStyle(
-// fontFamily: FontConstants.fontFamily2,
-// color: ColorManager.black,
-// //fontWeight: FontWeightManager.bold,
-// fontSize: FontSize.s16),
-// ),
-// ],
-// ),
-// Row(
-// children: [
-// Text(
-// 'Material code   :   10',
-// style: TextStyle(
-// fontFamily: FontConstants.fontFamily2,
-// color: ColorManager.black,
-// //fontWeight: FontWeightManager.bold,
-// fontSize: FontSize.s16),
-// ),
-// ],
-// ),
-// Row(
-// children: [
-// Text(
-// 'Order Qty         : 100',
-// style: TextStyle(
-// fontFamily: FontConstants.fontFamily2,
-// color: ColorManager.black,
-// //fontWeight: FontWeightManager.bold,
-// fontSize: FontSize.s16),
-// ),
-// ],
-// ),
-// Row(
-// mainAxisAlignment: MainAxisAlignment.end,
-// children: [
-// SizedBox(
-// height: 25,
-// child: ElevatedButton(
-// onPressed: () {},
-// child: Text('Add')))
-// ],
-// )
-// ],
-// ),
-// ),
-// ),
-// ],
-// ),
-// );

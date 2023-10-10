@@ -1,42 +1,84 @@
-//
-//
-//
-// import 'package:flutter/material.dart';
-// import 'package:uma_sunns/resources/value_manager.dart';
-//
-// import 'color_manager.dart';
-//
-// ThemeData getApplicationTheme() {
-//   return ThemeData(
-//
-//
-//       /// input decoration theme (text fo rm field)
-//
-//       inputDecorationTheme: InputDecorationTheme(
-//         contentPadding: EdgeInsets.all(AppPadding.p8),
-//
-//         /// enabled border
-//         enabledBorder: OutlineInputBorder(
-//           borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s5),
-//           borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
-//         ),
-//         /// focuse border
-//         focusedBorder: OutlineInputBorder(
-//           borderSide:
-//           BorderSide(color: ColorManager.primary, width: AppSize.s5),
-//           borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
-//         ),
-//         /// error border
-//         errorBorder: OutlineInputBorder(
-//           borderSide:
-//           BorderSide(color: ColorManager.red, width: AppSize.s5),
-//           borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
-//         ),
-//         /// focuse error border
-//         focusedErrorBorder: OutlineInputBorder(
-//           borderSide:
-//           BorderSide(color: ColorManager.primary, width: AppSize.s5),
-//           borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
-//         ),
-//       ));
-// }
+
+import 'dart:js';
+
+import 'package:flutter/material.dart';
+import 'package:pum_operator/resources/color_manager.dart';
+import 'package:pum_operator/resources/font_manager.dart';
+
+///login
+class LoginTextStyles {
+  static TextStyle customTextStyle = TextStyle(
+    fontFamily: FontConstants.fontFamily1,
+    fontSize: FontSize.s15_25,
+    fontWeight: FontWeightManager.medium,
+    color: ColorManager.faintgrey,
+  );
+}
+
+///operator order
+class ThemeManager {
+  static TextStyle customTextStyle({required Color color}) {
+    return TextStyle(
+      fontFamily: FontConstants.fontFamily2,
+      color: color,
+      fontWeight: FontWeightManager.medium,
+      fontSize: FontSize.s16,
+    );
+  }
+}
+
+
+///changing random
+class RandomConstant {
+  static TextStyle customTextStyle(double fontSize, String fontFamily, FontWeight fontWeight, Color color) {
+    return TextStyle(
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      fontWeight: fontWeight,
+      color: color,
+    );
+  }
+}
+
+class HomeOperatorConstant {
+  static TextStyle customTextStyle(BuildContext context, Color textColor) {
+    return TextStyle(
+      fontFamily: FontConstants.fontFamily2,
+      fontWeight: FontWeightManager.bold,
+      fontSize: MediaQuery.of(context).size.width / 40,
+      color: textColor,
+    );
+  }
+}
+
+class OperatorConstant {
+  static TextStyle customTextStyle(BuildContext context, Color textColor) {
+    return TextStyle(
+      fontFamily: FontConstants.fontFamily2, fontSize: MediaQuery.of(context).size.width / 40,
+      color: textColor,
+    );
+  }
+}
+
+///popup
+class PopupConstant {
+  static TextStyle customTextStyle(BuildContext context, Color textColor) {
+    return TextStyle(
+      fontFamily: FontConstants.fontFamily2,
+      fontWeight: FontWeightManager.regular,
+      fontSize: MediaQuery.of(context).size.width / 50,
+      color: textColor,
+    );
+  }
+}
+
+class RandomColor {
+  static TextStyle customTextStyle({required Color color}) {
+    return TextStyle(
+      fontFamily: FontConstants.fontFamily2,
+      color: color,
+      fontWeight: FontWeightManager.bold,
+      fontSize: FontSize.s15,
+    );
+  }
+}

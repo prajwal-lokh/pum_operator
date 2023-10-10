@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pum_operator/resources/font_manager.dart';
 import 'package:pum_operator/resources/string_manager.dart';
 
+import '../../../resources/color_manager.dart';
+import '../../../resources/theme_manager.dart';
+
 class ForgetPopup extends StatelessWidget {
   const ForgetPopup({super.key});
 
@@ -19,11 +22,7 @@ class ForgetPopup extends StatelessWidget {
             children: [
               Text(AppString.forgetpopuptext,
                 textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: FontConstants.fontFamily2,
-                fontWeight: FontWeightManager.regular,
-                fontSize: MediaQuery.of(context).size.width / 40
-              ),),
+              style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )),
             ],
           ),
         ),

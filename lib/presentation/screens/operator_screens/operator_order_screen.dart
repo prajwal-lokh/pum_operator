@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pum_operator/presentation/modals/orders_modal.dart';
+import 'package:pum_operator/resources/theme_manager.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
@@ -46,24 +47,16 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
               ),
               Text(
                 AppString.vishalmore,
-                style: TextStyle(
-                    fontFamily: FontConstants.fontFamily2,
-                    color: ColorManager.navyblue,
-                    //fontWeight: FontWeightManager.bold,
-                    fontSize: FontSize.s16),
+                style: ThemeManager.customTextStyle(color: ColorManager.navyblue)
               ),
               Text(
                 AppString.operatorshift,
-                style: TextStyle(
-                    fontFamily: FontConstants.fontFamily2,
-                    color: ColorManager.black,
-                    //fontWeight: FontWeightManager.bold,
-                    fontSize: FontSize.s16),
+                style: ThemeManager.customTextStyle(color: ColorManager.black)
               ),
             ],
           ),
           const SizedBox(
-            height: 15,
+            height: AppSize.s16,
           ),
           Expanded(
               child: ScrollConfiguration(
@@ -91,8 +84,6 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: ColorManager.sidebar,
-                                // borderRadius:
-                                //     const BorderRadius.all(Radius.circular(10)),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black45
@@ -114,30 +105,16 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                       children: [
                                         Text(
                                           AppString.operatoroo,
-                                          style: TextStyle(
-                                              fontFamily:
-                                                  FontConstants.fontFamily2,
-                                              color: ColorManager.appbarcolor,
-                                              fontWeight:
-                                                  FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                              fontSize: FontSize.s15),
+                                          style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
                                         ),
                                         Text(
                                           orders[index].operation,
-                                          style: TextStyle(
-                                              fontFamily:
-                                                  FontConstants.fontFamily2,
-                                              color: ColorManager.appbarcolor,
-                                              fontWeight:
-                                                  FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                              fontSize: FontSize.s15),
+                                          style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
                                         ),
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 15,
+                                      height: AppSize.s16,
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -147,29 +124,11 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           children: [
                                             Text(
                                               AppString.orderoo,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                             Text(
                                               widget.ordernum,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                           ],
                                         ),
@@ -177,37 +136,18 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           children: [
                                             Text(
                                               AppString.itemsoo,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                             Text(
                                               orders[index].items,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight:
-                                                      FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
                                             ),
                                           ],
                                         ),
                                       ],
                                     ),
                                     const SizedBox(
-                                      height: 15,
+                                      height: AppSize.s16,
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -219,37 +159,14 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           children: [
                                             Text(
                                               AppString.yield,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                             SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  60,
+                                              height: MediaQuery.of(context).size.height / 60,
                                             ),
                                             Text(
                                               '0',
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight:
-                                                      FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
                                             ),
                                           ],
                                         ),
@@ -259,38 +176,15 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           children: [
                                             Text(
                                               AppString.rework,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                             SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  60,
+                                              height: MediaQuery.of(context).size.height / 60,
                                             ),
                                             Text(
                                               '0',
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight:
-                                                      FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
                                             ),
                                           ],
                                         ),
@@ -302,16 +196,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           children: [
                                             Text(
                                               AppString.rejection,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  //fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
                                             ),
                                             SizedBox(
                                               height: MediaQuery.of(context)
@@ -321,25 +206,14 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                             ),
                                             Text(
                                               '0',
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.black,
-                                                  fontWeight:
-                                                      FontWeightManager.bold,
-//fontWeight: FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
                                             )
                                           ],
                                         )
                                       ],
                                     ),
                                     const SizedBox(
-                                      height: 15,
+                                      height: AppSize.s16,
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
@@ -404,17 +278,7 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                             ),
                                             child: Text(
                                               AppString.save,
-                                              style: TextStyle(
-                                                  fontFamily:
-                                                      FontConstants.fontFamily2,
-                                                  color: ColorManager.white,
-                                                  fontWeight:
-                                                      FontWeightManager.bold,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width /
-                                                          40),
+                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.white )
                                             ),
                                           ),
                                         ),

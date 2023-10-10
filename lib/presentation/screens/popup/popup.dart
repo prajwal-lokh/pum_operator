@@ -4,6 +4,7 @@ import 'package:pum_operator/resources/string_manager.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
+import '../../../resources/theme_manager.dart';
 import '../../../resources/value_manager.dart';
 
 class PopUp extends StatefulWidget {
@@ -56,11 +57,7 @@ class _PopUpState extends State<PopUp> {
                               children: [
                                 Text(
                                   AppString.operationquantity,
-                                  style: TextStyle(
-                                      color: ColorManager.faintb,
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
+                                  style: RandomColor.customTextStyle(color: ColorManager.faintb)
                                 ),
                                 SizedBox(
                                   height:
@@ -68,10 +65,7 @@ class _PopUpState extends State<PopUp> {
                                 ),
                                 Text(
                                   widget.quantity,
-                                  style: const TextStyle(
-                                      fontSize: FontSize.s15,
-                                      fontFamily: FontConstants.fontFamily2,
-                                      fontWeight: FontWeightManager.bold),
+                                  style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
                                 ),
                                 SizedBox(
                                   height:
@@ -89,14 +83,7 @@ class _PopUpState extends State<PopUp> {
                                     ),
                                     Text(
                                       AppString.yield,
-                                      style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              50,
-                                          fontFamily: FontConstants.fontFamily2,
-                                          fontWeight:
-                                              FontWeightManager.regular),
+                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
@@ -104,14 +91,7 @@ class _PopUpState extends State<PopUp> {
                                     ),
                                     Text(
                                       AppString.rework,
-                                      style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              50,
-                                          fontFamily: FontConstants.fontFamily2,
-                                          fontWeight:
-                                              FontWeightManager.regular),
+                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
@@ -119,14 +99,7 @@ class _PopUpState extends State<PopUp> {
                                     ),
                                     Text(
                                       AppString.rejection,
-                                      style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              50,
-                                          fontFamily: FontConstants.fontFamily2,
-                                          fontWeight:
-                                              FontWeightManager.regular),
+                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
                                     ),
                                   ],
                                 ),
@@ -240,292 +213,10 @@ class _PopUpState extends State<PopUp> {
                                 )
                               ],
                             ),
-                            // Column(
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   children: [
-                            //     Text(
-                            //       'Rework',
-                            //       style: TextStyle(
-                            //           color: ColorManager.faintb,
-                            //           fontSize: FontSize.s15,
-                            //           fontFamily: FontConstants.fontFamily2,
-                            //           fontWeight: FontWeightManager.bold),
-                            //     ),
-                            //     SizedBox(
-                            //       height: MediaQuery.of(context).size.height / 55,
-                            //     ),
-                            //     Text(
-                            //       '0',
-                            //       style: TextStyle(
-                            //           fontSize: FontSize.s15,
-                            //           fontFamily: FontConstants.fontFamily2,
-                            //           fontWeight: FontWeightManager.bold),
-                            //     ),
-                            //     SizedBox(
-                            //       height: MediaQuery.of(context).size.height / 23,
-                            //     ),
-                            //     Text(
-                            //       'Rework',
-                            //       style: TextStyle(
-                            //           fontSize: FontSize.s15,
-                            //           fontFamily: FontConstants.fontFamily2,
-                            //           fontWeight: FontWeightManager.regular),
-                            //     ),
-                            //     SizedBox(
-                            //       height: AppSize.s45,
-                            //       width: MediaQuery.of(context).size.width / 4.5,
-                            //       child: TextFormField(
-                            //         textAlign: TextAlign.start,
-                            //         textAlignVertical: TextAlignVertical.top,
-                            //         // controller: _NumberController,
-                            //         keyboardType: TextInputType.number,
-                            //         decoration: InputDecoration(
-                            //           // hintText: AppString.email,
-                            //           border: OutlineInputBorder(
-                            //             borderRadius: BorderRadius.circular(10),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     )
-                            //   ],
-                            // ),
-                            // Column(
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   children: [
-                            //     // Text(
-                            //     //   'Rejection',
-                            //     //   style: TextStyle(
-                            //     //       color: ColorManager.faintb,
-                            //     //       fontSize: FontSize.s15,
-                            //     //       fontFamily: FontConstants.fontFamily2,
-                            //     //       fontWeight: FontWeightManager.bold),
-                            //     // ),
-                            //     // SizedBox(
-                            //     //   height: MediaQuery.of(context).size.height / 55,
-                            //     // ),
-                            //     // Text(
-                            //     //   '0',
-                            //     //   style: TextStyle(
-                            //     //       fontSize: FontSize.s15,
-                            //     //       fontFamily: FontConstants.fontFamily2,
-                            //     //       fontWeight: FontWeightManager.bold),
-                            //     // ),
-                            //     SizedBox(
-                            //       height: MediaQuery.of(context).size.height / 20,
-                            //     ),
-                            //     Text(
-                            //       'Rejection',
-                            //       style: TextStyle(
-                            //           fontSize: FontSize.s15,
-                            //           fontFamily: FontConstants.fontFamily2,
-                            //           fontWeight: FontWeightManager.regular),
-                            //     ),
-                            //     SizedBox(
-                            //       height: AppSize.s45,
-                            //       width: MediaQuery.of(context).size.width / 4.5,
-                            //       child: TextFormField(
-                            //         textAlign: TextAlign.start,
-                            //         textAlignVertical: TextAlignVertical.top,
-                            //         // controller: _NumberController,
-                            //         keyboardType: TextInputType.number,
-                            //         decoration: InputDecoration(
-                            //           // hintText: AppString.email,
-                            //           border: OutlineInputBorder(
-                            //             borderRadius: BorderRadius.circular(10),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     )
-                            //   ],
-                            // ),
+
                           ],
                         ),
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height / 15,
-                        // ),
-                        // Column(
-                        //   crossAxisAlignment: CrossAxisAlignment.start,
-                        //   children: [
-                        //     const Text(
-                        //       'Activity Type',
-                        //       style: TextStyle(
-                        //         fontFamily: FontConstants.fontFamily2,
-                        //         fontWeight: FontWeightManager.bold,
-                        //         fontSize: FontSize.s15,
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       height: MediaQuery.of(context).size.height / 90,
-                        //     ),
-                        //     Container(
-                        //         decoration: BoxDecoration(
-                        //             border:
-                        //                 Border.all(color: Colors.grey, width: 1),
-                        //             borderRadius: BorderRadius.circular(10)),
-                        //         padding: EdgeInsets.all(AppPadding.p8),
-                        //         height: AppSize.s45,
-                        //         child: DropdownButton(
-                        //           hint: Text("Select"),
-                        //           value: valueChoose,
-                        //           underline: SizedBox(),
-                        //           isExpanded: true,
-                        //           icon: Icon(Icons.keyboard_arrow_down_outlined),
-                        //           iconSize: AppSize.s36,
-                        //           dropdownColor: ColorManager.white,
-                        //           style: TextStyle(
-                        //             color: ColorManager.black,
-                        //           ),
-                        //           onChanged: (val) {
-                        //             setState(() {
-                        //               valueChoose = val as String?;
-                        //             });
-                        //           },
-                        //           items: ListItems.map((ValueItem) {
-                        //             return DropdownMenuItem(
-                        //               child: Text(ValueItem),
-                        //               value: ValueItem,
-                        //             );
-                        //           }).toList(),
-                        //         ))
-                        //   ],
-                        // ),
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height / 20,
-                        // ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        //     Column(
-                        //       crossAxisAlignment: CrossAxisAlignment.start,
-                        //       children: [
-                        //         Text(
-                        //           'Down Time Code',
-                        //           style: TextStyle(
-                        //               fontSize: FontSize.s15,
-                        //               fontFamily: FontConstants.fontFamily2,
-                        //               fontWeight: FontWeightManager.bold),
-                        //         ),
-                        //         SizedBox(
-                        //           height: MediaQuery.of(context).size.height / 80,
-                        //         ),
-                        //         Container(
-                        //             decoration: BoxDecoration(
-                        //                 border: Border.all(
-                        //                     color: Colors.grey, width: 1),
-                        //                 borderRadius: BorderRadius.circular(10)),
-                        //             padding: EdgeInsets.all(AppPadding.p8),
-                        //             height: AppSize.s45,
-                        //             width:
-                        //                 MediaQuery.of(context).size.width / 4.5,
-                        //             child: DropdownButton(
-                        //               hint: Text("Select"),
-                        //               value: valueChoose,
-                        //               underline: SizedBox(),
-                        //               isExpanded: true,
-                        //               icon: Icon(
-                        //                   Icons.keyboard_arrow_down_outlined),
-                        //               onChanged: (val) {
-                        //                 setState(() {
-                        //                   valueChoose = val as String?;
-                        //                 });
-                        //               },
-                        //               items: ListItems.map((ValueItem) {
-                        //                 return DropdownMenuItem(
-                        //                   child: Text(ValueItem),
-                        //                   value: ValueItem,
-                        //                 );
-                        //               }).toList(),
-                        //             ))
-                        //       ],
-                        //     ),
-                        //     Column(
-                        //       crossAxisAlignment: CrossAxisAlignment.start,
-                        //       children: [
-                        //         Text(
-                        //           'Down Time',
-                        //           style: TextStyle(
-                        //               fontSize: FontSize.s15,
-                        //               fontFamily: FontConstants.fontFamily2,
-                        //               fontWeight: FontWeightManager.bold),
-                        //         ),
-                        //         SizedBox(
-                        //           height: MediaQuery.of(context).size.height / 80,
-                        //         ),
-                        //         Container(
-                        //             decoration: BoxDecoration(
-                        //                 border: Border.all(
-                        //                     color: Colors.grey, width: 1),
-                        //                 borderRadius: BorderRadius.circular(10)),
-                        //             padding: EdgeInsets.all(AppPadding.p8),
-                        //             height: AppSize.s45,
-                        //             width:
-                        //                 MediaQuery.of(context).size.width / 4.5,
-                        //             child: DropdownButton(
-                        //               hint: Text("Select"),
-                        //               value: valueChoose,
-                        //               underline: SizedBox(),
-                        //               isExpanded: true,
-                        //               icon: Icon(
-                        //                   Icons.keyboard_arrow_down_outlined),
-                        //               onChanged: (val) {
-                        //                 setState(() {
-                        //                   valueChoose = val as String?;
-                        //                 });
-                        //               },
-                        //               items: ListItems.map((ValueItem) {
-                        //                 return DropdownMenuItem(
-                        //                   child: Text(ValueItem),
-                        //                   value: ValueItem,
-                        //                 );
-                        //               }).toList(),
-                        //             ))
-                        //       ],
-                        //     ),
-                        //     Column(
-                        //       crossAxisAlignment: CrossAxisAlignment.start,
-                        //       children: [
-                        //         Text(
-                        //           'UOM Down Time',
-                        //           style: TextStyle(
-                        //               fontSize: FontSize.s15,
-                        //               fontFamily: FontConstants.fontFamily2,
-                        //               fontWeight: FontWeightManager.bold),
-                        //         ),
-                        //         SizedBox(
-                        //           height: MediaQuery.of(context).size.height / 80,
-                        //         ),
-                        //         Container(
-                        //             decoration: BoxDecoration(
-                        //                 border: Border.all(
-                        //                     color: Colors.grey, width: 1),
-                        //                 borderRadius: BorderRadius.circular(10)),
-                        //             padding: EdgeInsets.all(AppPadding.p8),
-                        //             height: AppSize.s45,
-                        //             width:
-                        //                 MediaQuery.of(context).size.width / 4.5,
-                        //             child: DropdownButton(
-                        //               hint: Text("Select"),
-                        //               value: valueChoose,
-                        //               underline: SizedBox(),
-                        //               isExpanded: true,
-                        //               icon: Icon(
-                        //                   Icons.keyboard_arrow_down_outlined),
-                        //               onChanged: (val) {
-                        //                 setState(() {
-                        //                   valueChoose = val as String?;
-                        //                 });
-                        //               },
-                        //               items: ListItems.map((ValueItem) {
-                        //                 return DropdownMenuItem(
-                        //                   child: Text(ValueItem),
-                        //                   value: ValueItem,
-                        //                 );
-                        //               }).toList(),
-                        //             ))
-                        //       ],
-                        //     )
-                        //   ],
-                        // ),
+
                         SizedBox(
                           height: MediaQuery.of(context).size.height / 18,
                         ),
@@ -545,18 +236,12 @@ class _PopUpState extends State<PopUp> {
                                   },
                                   child: Text(
                                     AppString.cancle,
-                                    style: TextStyle(
-                                        fontFamily: FontConstants.fontFamily2,
-                                        color: ColorManager.faintblue,
-                                        fontWeight: FontWeightManager.bold,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width /
-                                                50),
+                                    style: PopupConstant.customTextStyle(context, ColorManager.faintblue)
                                   ),
                                 ),
                               ),
                               const SizedBox(
-                                width: 15,
+                                width: AppSize.s16,
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 7,
@@ -572,68 +257,12 @@ class _PopUpState extends State<PopUp> {
                                   ),
                                   child: Text(
                                     AppString.save,
-                                    style: TextStyle(
-                                        fontFamily: FontConstants.fontFamily2,
-                                        color: ColorManager.white,
-                                        fontWeight: FontWeightManager.regular,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width /
-                                                50),
+                                    style: PopupConstant.customTextStyle(context, ColorManager.white)
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.end,
-                          //   children: [
-                          //     SizedBox(
-                          //       height: MediaQuery.of(context).size.height / 20,
-                          //       width: MediaQuery.of(context).size.width / 14,
-                          //       child: TextButton(
-                          //         onPressed: () {
-                          //           Navigator.pop(context);
-                          //         },
-                          //         child: Text(
-                          //           'Cancel',
-                          //           style: TextStyle(
-                          //             fontSize:
-                          //                 MediaQuery.of(context).size.width /
-                          //                     100,
-                          //             fontFamily: FontConstants.fontFamily2,
-                          //             fontWeight: FontWeightManager.bold,
-                          //             color: ColorManager.faintblue,
-                          //           ),
-                          //         ),
-                          //         style: TextButton.styleFrom(
-                          //             shape: StadiumBorder()),
-                          //       ),
-                          //     ),
-                          //     SizedBox(
-                          //       height: MediaQuery.of(context).size.height / 20,
-                          //       width: MediaQuery.of(context).size.width / 14,
-                          //       child: TextButton(
-                          //         onPressed: () {
-                          //           Navigator.pop(context);
-                          //         },
-                          //         style: TextButton.styleFrom(
-                          //             shape: StadiumBorder(),
-                          //             backgroundColor: ColorManager.faintblue),
-                          //         child: Text(
-                          //           'Save',
-                          //           style: TextStyle(
-                          //             fontSize:
-                          //                 MediaQuery.of(context).size.width /
-                          //                     100,
-                          //             fontFamily: FontConstants.fontFamily2,
-                          //             fontWeight: FontWeightManager.bold,
-                          //             color: Colors.white,
-                          //           ),
-                          //         ),
-                          //       ),
-                          //     )
-                          //   ],
-                          // ),
                         )
                       ],
                     ),

@@ -1,21 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:pum_operator/presentation/screens/popup/forget_pass_popup.dart';
+import 'package:pum_operator/resources/theme_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../constants/button_constant.dart';
-import '../../../resources/asset_manager.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/value_manager.dart';
-import '../forgot_screen/forgot_pass_screen.dart';
 import '../home_screen/home_screen.dart';
 
-//
 class LoginScreenAndroid extends StatefulWidget {
   const LoginScreenAndroid({Key? key}) : super(key: key);
 
@@ -78,22 +73,17 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     padding: EdgeInsets.only(top: AppPadding.p130),
                     child: Text(
                       AppString.signinhead,
-                      style: TextStyle(
-                          fontFamily: FontConstants.fontFamily1,
-                          fontSize: FontSize.s36,
-                          color: ColorManager.navyblue,
-                          fontWeight: FontWeightManager.bold),
+                      style: RandomConstant.customTextStyle(FontSize.s36,
+                          FontConstants.fontFamily1,
+                        FontWeightManager.bold,
+                        ColorManager.navyblue,)
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppPadding.p55),
                     child: Text(
                       AppString.email,
-                      style: TextStyle(
-                          fontFamily: FontConstants.fontFamily1,
-                          fontSize: FontSize.s15_25,
-                          fontWeight: FontWeightManager.medium,
-                          color: ColorManager.faintgrey),
+                      style: LoginTextStyles.customTextStyle
                     ),
                   ),
                   const SizedBox(
@@ -109,9 +99,6 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     keyboardType: TextInputType.emailAddress,
                     //textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      //filled: true,
-                      //label: const Text(AppString.email),
-                      // hintText: AppString.email,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -145,11 +132,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     padding: const EdgeInsets.only(top: AppPadding.p28),
                     child: Text(
                       AppString.password,
-                      style: TextStyle(
-                          fontFamily: FontConstants.fontFamily1,
-                          fontSize: FontSize.s15_25,
-                          fontWeight: FontWeightManager.medium,
-                          color: ColorManager.faintgrey),
+                      style: LoginTextStyles.customTextStyle
                     ),
                   ),
                   const SizedBox(
@@ -207,11 +190,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                           },
                           child: Text(
                             AppString.forgetpass,
-                            style: TextStyle(
-                                fontFamily: FontConstants.fontFamily1,
-                                fontSize: FontSize.s16,
-                                color: ColorManager.appbarcolor,
-                                fontWeight: FontWeightManager.regular),
+                            style: ThemeManager.customTextStyle(color: ColorManager.appbarcolor)
                           ))
                     ],
                   ),
@@ -299,11 +278,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                               backgroundColor: ColorManager.appbarcolor),
                           child: Text(
                             AppString.signin,
-                            style: TextStyle(
-                                fontFamily: FontConstants.fontFamily2,
-                                fontWeight: FontWeightManager.bold,
-                                color: ColorManager.white,
-                                fontSize: FontSize.s16),
+                            style: ThemeManager.customTextStyle(color: ColorManager.white)
                           ),
                         ),
                       ),
