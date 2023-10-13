@@ -6,6 +6,7 @@ class ColorManager {
   static Color faintb = Color(0xff1E56A0);
   static Color grey = Color(0xff8B8781);
   static Color white = HexColor.fromHex('#FFFFFF');
+  static Color navybluenew = Color(0xff163172);
   static Color black = Color(0xfc000000);
   static Color lightblue = Color(0xfc3A74B4);
   static Color buttoncolor = Color(0xfc79AEF5);

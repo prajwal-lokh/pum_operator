@@ -71,20 +71,18 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: AppPadding.p130),
-                    child: Text(
-                      AppString.signinhead,
-                      style: RandomConstant.customTextStyle(FontSize.s36,
+                    child: Text(AppString.signinhead,
+                        style: RandomConstant.customTextStyle(
+                          FontSize.s36,
                           FontConstants.fontFamily1,
-                        FontWeightManager.bold,
-                        ColorManager.navyblue,)
-                    ),
+                          FontWeightManager.bold,
+                          ColorManager.navyblue,
+                        )),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppPadding.p55),
-                    child: Text(
-                      AppString.email,
-                      style: LoginTextStyles.customTextStyle
-                    ),
+                    child: Text(AppString.email,
+                        style: LoginTextStyles.customTextStyle),
                   ),
                   const SizedBox(
                     height: AppSize.s10,
@@ -99,19 +97,22 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     keyboardType: TextInputType.emailAddress,
                     //textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                      filled: true,
+                      fillColor: Colors.white,
                       prefixIcon: Icon(
                         Icons.alternate_email_outlined,
                         color: ColorManager.lightblue,
                       ),
-                      // SvgPicture.asset(
-                      //   ImageAssets.emailLogo,
-                      //   width: AppSize.s12,
-                      //   height: AppSize.s12,
-                      //   fit: BoxFit.scaleDown,
-                      // ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: ColorManager.navybluenew, width: 1.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: ColorManager.black, width: 1.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                     // onChanged: (value){
                     //   email = value;
@@ -130,10 +131,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppPadding.p28),
-                    child: Text(
-                      AppString.password,
-                      style: LoginTextStyles.customTextStyle
-                    ),
+                    child: Text(AppString.password,
+                        style: LoginTextStyles.customTextStyle),
                   ),
                   const SizedBox(
                     height: AppSize.s10,
@@ -148,25 +147,33 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                        //label: Text(AppString.password),
-                        // hintText: AppString.password,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.lock,
-                          color: ColorManager.lightblue,
-                        ),
-                        suffixIcon: IconButton(
-                          icon: isPasswordVisible
-                              ? Icon(Icons.visibility_off)
-                              : Icon(Icons.visibility),
-                          onPressed: () {
-                            setState(() {
-                              isPasswordVisible = !isPasswordVisible;
-                            });
-                          },
-                        )),
+                      filled: true,
+                      fillColor: Colors.white,
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: ColorManager.lightblue,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: isPasswordVisible
+                            ? Icon(Icons.visibility_off)
+                            : Icon(Icons.visibility),
+                        onPressed: () {
+                          setState(() {
+                            isPasswordVisible = !isPasswordVisible;
+                          });
+                        },
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: ColorManager.navybluenew, width: 1.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: ColorManager.black, width: 1.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return AppString.Enterpassword;
@@ -188,10 +195,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                                 context: context,
                                 builder: (_) => ForgetPopup());
                           },
-                          child: Text(
-                            AppString.forgetpass,
-                            style: ThemeManager.customTextStyle(color: ColorManager.appbarcolor)
-                          ))
+                          child: Text(AppString.forgetpass,
+                              style: ThemeManager.customTextStyle(
+                                  color: ColorManager.appbarcolor)))
                     ],
                   ),
                   const SizedBox(
@@ -276,10 +282,9 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                               ),
                               elevation: 2,
                               backgroundColor: ColorManager.appbarcolor),
-                          child: Text(
-                            AppString.signin,
-                            style: ThemeManager.customTextStyle(color: ColorManager.white)
-                          ),
+                          child: Text(AppString.signin,
+                              style: ThemeManager.customTextStyle(
+                                  color: ColorManager.white)),
                         ),
                       ),
                     ],

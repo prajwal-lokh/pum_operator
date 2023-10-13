@@ -55,18 +55,16 @@ class _PopUpState extends State<PopUp> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  AppString.operationquantity,
-                                  style: RandomColor.customTextStyle(color: ColorManager.faintb)
-                                ),
+                                Text(AppString.operationquantity,
+                                    style: RandomColor.customTextStyle(
+                                        color: ColorManager.faintb)),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height / 55,
                                 ),
-                                Text(
-                                  widget.quantity,
-                                  style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
-                                ),
+                                Text(widget.quantity,
+                                    style: RandomColor.customTextStyle(
+                                        color: ColorManager.appbarcolor)),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height / 19,
@@ -81,28 +79,26 @@ class _PopUpState extends State<PopUp> {
                                       width: MediaQuery.of(context).size.width /
                                           120,
                                     ),
-                                    Text(
-                                      AppString.yield,
-                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
-                                    ),
+                                    Text(AppString.yield,
+                                        style: PopupConstant.customTextStyle(
+                                            context, ColorManager.black)),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
                                           15,
                                     ),
-                                    Text(
-                                      AppString.rework,
-                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
-                                    ),
+                                    Text(AppString.rework,
+                                        style: PopupConstant.customTextStyle(
+                                            context, ColorManager.black)),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width /
                                           20,
                                     ),
-                                    Text(
-                                      AppString.rejection,
-                                      style: PopupConstant.customTextStyle(context, ColorManager.black)
-                                    ),
+                                    Text(AppString.rejection,
+                                        style: PopupConstant.customTextStyle(
+                                            context, ColorManager.black)),
                                   ],
                                 ),
+
                                 ///txtfield
                                 Row(
                                   children: [
@@ -129,6 +125,9 @@ class _PopUpState extends State<PopUp> {
                                           contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color:
+                                                    ColorManager.navybluenew),
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
@@ -164,6 +163,9 @@ class _PopUpState extends State<PopUp> {
                                           contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color:
+                                                    ColorManager.navybluenew),
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
@@ -200,6 +202,9 @@ class _PopUpState extends State<PopUp> {
                                           contentPadding: EdgeInsets.all(10),
                                           // hintText: AppString.email,
                                           border: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color:
+                                                    ColorManager.navybluenew),
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
@@ -213,10 +218,8 @@ class _PopUpState extends State<PopUp> {
                                 )
                               ],
                             ),
-
                           ],
                         ),
-
                         SizedBox(
                           height: MediaQuery.of(context).size.height / 18,
                         ),
@@ -234,10 +237,9 @@ class _PopUpState extends State<PopUp> {
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
-                                  child: Text(
-                                    AppString.cancle,
-                                    style: PopupConstant.customTextStyle(context, ColorManager.faintblue)
-                                  ),
+                                  child: Text(AppString.cancle,
+                                      style: PopupConstant.customTextStyle(
+                                          context, ColorManager.faintblue)),
                                 ),
                               ),
                               const SizedBox(
@@ -255,10 +257,9 @@ class _PopUpState extends State<PopUp> {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: ColorManager.appbarcolor,
                                   ),
-                                  child: Text(
-                                    AppString.save,
-                                    style: PopupConstant.customTextStyle(context, ColorManager.white)
-                                  ),
+                                  child: Text(AppString.save,
+                                      style: PopupConstant.customTextStyle(
+                                          context, ColorManager.white)),
                                 ),
                               ),
                             ],
