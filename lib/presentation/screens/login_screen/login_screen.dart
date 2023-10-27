@@ -88,6 +88,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     height: AppSize.s10,
                   ),
                   TextFormField(
+                    cursorColor: ColorManager.black,
                     focusNode: fieldOne,
                     onFieldSubmitted: (value) {
                       FocusScope.of(context).requestFocus(fieldTow);
@@ -138,6 +139,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     height: AppSize.s10,
                   ),
                   TextFormField(
+                    cursorColor: ColorManager.black,
                     focusNode: fieldTow,
                     onFieldSubmitted: (value) {
                       FocusScope.of(context).requestFocus(fieldThree);
@@ -298,3 +300,4 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
     );
   }
 }
+
