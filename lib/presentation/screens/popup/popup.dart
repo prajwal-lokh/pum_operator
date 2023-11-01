@@ -71,150 +71,165 @@ class _PopUpState extends State<PopUp> {
                                 ),
 
                                 ///txt
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          120,
-                                    ),
-                                    Text(AppString.yield,
-                                        style: PopupConstant.customTextStyle(
-                                            context, ColorManager.black)),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          15,
-                                    ),
-                                    Text(AppString.rework,
-                                        style: PopupConstant.customTextStyle(
-                                            context, ColorManager.black)),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          20,
-                                    ),
-                                    Text(AppString.rejection,
-                                        style: PopupConstant.customTextStyle(
-                                            context, ColorManager.black)),
-                                  ],
+                                Center(
+                                  child: Row(
+                                    // mainAxisAlignment:
+                                    //     MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                120,
+                                      ),
+                                      Text(AppString.yield,
+                                          style: PopupConstant.customTextStyle(
+                                              context, ColorManager.black)),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                15,
+                                      ),
+                                      Text(AppString.rework,
+                                          style: PopupConstant.customTextStyle(
+                                              context, ColorManager.black)),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                20,
+                                      ),
+                                      Text(AppString.rejection,
+                                          style: PopupConstant.customTextStyle(
+                                              context, ColorManager.black)),
+                                    ],
+                                  ),
                                 ),
 
                                 ///txtfield
-                                Row(
-                                  children: [
-                                    Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              20,
-                                      width: MediaQuery.of(context).size.width /
-                                          10,
-                                      alignment: Alignment.center,
-                                      child: TextFormField(
-                                        focusNode: fieldOne,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldTwo);
-                                        },
-                                        // cursorHeight: 18,
-                                        textAlign: TextAlign.start,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        // controller: _NumberController,
-                                        keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.all(10),
-                                          // hintText: AppString.email,
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color:
-                                                    ColorManager.navybluenew),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                Center(
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                20,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                10,
+                                        // alignment: Alignment.center,
+                                        child: TextFormField(
+                                          focusNode: fieldOne,
+                                          onFieldSubmitted: (value) {
+                                            FocusScope.of(context)
+                                                .requestFocus(fieldTwo);
+                                          },
+                                          // cursorHeight: 18,
+                                          textAlign: TextAlign.start,
+                                          textAlignVertical:
+                                              TextAlignVertical.center,
+                                          controller: _NumberController,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.all(10),
+                                            // hintText: AppString.email,
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color:
+                                                      ColorManager.navybluenew),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
+                                          ],
                                         ),
-                                        inputFormatters: [
-                                          FilteringTextInputFormatter.digitsOnly
-                                        ],
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          80,
-                                    ),
-                                    SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              20,
-                                      width: MediaQuery.of(context).size.width /
-                                          10,
-                                      child: TextFormField(
-                                        focusNode: fieldTwo,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldThree);
-                                        },
-                                        //cursorHeight: 18,
-                                        textAlign: TextAlign.start,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        // controller: _NumberController,
-                                        keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.all(10),
-                                          // hintText: AppString.email,
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color:
-                                                    ColorManager.navybluenew),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                80,
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                20,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                10,
+                                        child: TextFormField(
+                                          focusNode: fieldTwo,
+                                          onFieldSubmitted: (value) {
+                                            FocusScope.of(context)
+                                                .requestFocus(fieldThree);
+                                          },
+                                          //cursorHeight: 18,
+                                          textAlign: TextAlign.start,
+                                          textAlignVertical:
+                                              TextAlignVertical.center,
+                                          // controller: _NumberController,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.all(10),
+                                            // hintText: AppString.email,
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color:
+                                                      ColorManager.navybluenew),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
+                                          ],
                                         ),
-                                        inputFormatters: [
-                                          FilteringTextInputFormatter.digitsOnly
-                                        ],
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          70,
-                                    ),
-                                    SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              20,
-                                      //height: AppSize.s36,
-                                      width: MediaQuery.of(context).size.width /
-                                          10,
-                                      child: TextFormField(
-                                        focusNode: fieldThree,
-                                        onFieldSubmitted: (value) {
-                                          FocusScope.of(context)
-                                              .requestFocus(fieldFour);
-                                        },
-                                        // cursorHeight: 18,
-                                        textAlign: TextAlign.start,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        // controller: _NumberController,
-                                        keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.all(10),
-                                          // hintText: AppString.email,
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color:
-                                                    ColorManager.navybluenew),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                70,
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                20,
+                                        //height: AppSize.s36,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                10,
+                                        child: TextFormField(
+                                          focusNode: fieldThree,
+                                          onFieldSubmitted: (value) {
+                                            FocusScope.of(context)
+                                                .requestFocus(fieldFour);
+                                          },
+                                          // cursorHeight: 18,
+                                          textAlign: TextAlign.start,
+                                          textAlignVertical:
+                                              TextAlignVertical.center,
+                                          // controller: _NumberController,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.all(10),
+                                            // hintText: AppString.email,
+                                            border: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color:
+                                                      ColorManager.navybluenew),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
+                                          ],
                                         ),
-                                        inputFormatters: [
-                                          FilteringTextInputFormatter.digitsOnly
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
