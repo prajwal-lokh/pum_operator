@@ -2,24 +2,36 @@
   {
     "dbid": 1,
     "operation" : "Welding (10)",
+    "yield": "100",
+    "rework": "10",
+    "rejection": "10",
 
     "items": "100"
   },
   {
     "dbid": 2,
     "operation" : "Boring (20)",
+    "yield": "100",
+    "rework": "10",
+    "rejection": "10",
 
     "items": "0"
   },
   {
     "dbid": 3,
     "operation" : "Auto Inspection (30)",
+    "yield": "100",
+    "rework": "10",
+    "rejection": "20",
 
     "items": "0"
   },
   {
     "dbid": 4,
     "operation" : "Manual Inspection (30)",
+    "yield": "100",
+    "rework": "30",
+    "rejection": "10",
 
     "items": "0"
   }

@@ -16,13 +16,24 @@ class PopUp extends StatefulWidget {
 }
 
 class _PopUpState extends State<PopUp> {
-  TextEditingController _NumberController = TextEditingController();
+  //TextEditingController _NumberController = TextEditingController();
+  TextEditingController yieldController = TextEditingController();
+  TextEditingController reworkController = TextEditingController();
+  TextEditingController rejectionController = TextEditingController();
   String? valueChoose;
 
   FocusNode fieldOne = FocusNode();
   FocusNode fieldTwo = FocusNode();
   FocusNode fieldThree = FocusNode();
   FocusNode fieldFour = FocusNode();
+
+  @override
+  void initState() {
+    yieldController = TextEditingController();
+    rejectionController = TextEditingController();
+    reworkController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,18 +134,26 @@ class _PopUpState extends State<PopUp> {
                                                 .requestFocus(fieldTwo);
                                           },
                                           // cursorHeight: 18,
+                                          cursorColor: ColorManager.black,
                                           textAlign: TextAlign.start,
                                           textAlignVertical:
                                               TextAlignVertical.center,
-                                          controller: _NumberController,
+                                          controller: yieldController,
                                           keyboardType: TextInputType.number,
                                           decoration: InputDecoration(
                                             contentPadding: EdgeInsets.all(10),
                                             // hintText: AppString.email,
-                                            border: OutlineInputBorder(
+                                            focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                  color:
-                                                      ColorManager.navybluenew),
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),
@@ -164,18 +183,26 @@ class _PopUpState extends State<PopUp> {
                                                 .requestFocus(fieldThree);
                                           },
                                           //cursorHeight: 18,
+                                          cursorColor: ColorManager.black,
                                           textAlign: TextAlign.start,
                                           textAlignVertical:
                                               TextAlignVertical.center,
-                                          // controller: _NumberController,
+                                          controller: reworkController,
                                           keyboardType: TextInputType.number,
                                           decoration: InputDecoration(
                                             contentPadding: EdgeInsets.all(10),
                                             // hintText: AppString.email,
-                                            border: OutlineInputBorder(
+                                            focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                  color:
-                                                      ColorManager.navybluenew),
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),
@@ -206,18 +233,26 @@ class _PopUpState extends State<PopUp> {
                                                 .requestFocus(fieldFour);
                                           },
                                           // cursorHeight: 18,
+                                          cursorColor: ColorManager.black,
                                           textAlign: TextAlign.start,
                                           textAlignVertical:
                                               TextAlignVertical.center,
-                                          // controller: _NumberController,
+                                          controller: rejectionController,
                                           keyboardType: TextInputType.number,
                                           decoration: InputDecoration(
                                             contentPadding: EdgeInsets.all(10),
                                             // hintText: AppString.email,
-                                            border: OutlineInputBorder(
+                                            focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                  color:
-                                                      ColorManager.navybluenew),
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: ColorManager.black,
+                                                  width: 1.0),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),

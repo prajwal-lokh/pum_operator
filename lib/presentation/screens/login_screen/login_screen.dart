@@ -92,6 +92,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     onFieldSubmitted: (value) {
                       FocusScope.of(context).requestFocus(fieldTow);
                     },
+                    cursorColor: ColorManager.black,
                     textAlignVertical: TextAlignVertical.top,
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -104,8 +105,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         color: ColorManager.lightblue,
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: ColorManager.navybluenew, width: 1.0),
+                        borderSide:
+                            BorderSide(color: ColorManager.black, width: 1.0),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
@@ -142,6 +143,7 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                     onFieldSubmitted: (value) {
                       FocusScope.of(context).requestFocus(fieldThree);
                     },
+                    cursorColor: ColorManager.black,
                     textAlignVertical: TextAlignVertical.top,
                     controller: _passwordController,
                     keyboardType: TextInputType.visiblePassword,
@@ -164,8 +166,8 @@ class _LoginScreenAndroidState extends State<LoginScreenAndroid> {
                         },
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: ColorManager.navybluenew, width: 1.0),
+                        borderSide:
+                            BorderSide(color: ColorManager.black, width: 1.0),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(

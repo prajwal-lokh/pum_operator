@@ -75,6 +75,7 @@ flutter:
   assets:
     - assets/operator_sample.json
     - assets/orders_sample.json
+    - assets/addorder_sample.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

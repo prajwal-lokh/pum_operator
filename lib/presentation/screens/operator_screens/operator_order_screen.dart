@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pum_operator/presentation/modals/orders_modal.dart';
 import 'package:pum_operator/resources/theme_manager.dart';
 
+import '../../../constants/app_config.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
 import '../../../resources/value_manager.dart';
@@ -20,6 +22,32 @@ class OperatorOrderScreen extends StatefulWidget {
 
 class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
   List<OrdersModal> orders = [];
+  var jsonList;
+
+  void getData() async {
+    try {
+      String token =
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjo0ODUyNDE3ODEyLCJpYXQiOjE2OTg4MTc4MTIsImp0aSI6IjAyMTA1MDEzYTg1ZDRlZjJiYWY0YWJiYjI5MzRiMTVmIiwidXNlcl9pZCI6MX0.ve3expi73Mkg1ZYJ7Fwc5SnBF-s3NBps-S8pgYlOLoo';
+      var headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token'
+      };
+      var response =
+          await Dio().post("${AppConfig.endpoint}/api/v1/oprconf/list/");
+      if (response.statusCode == 200) {
+        print(response.data.toString());
+        print(response.statusCode);
+        setState(() {
+          List Orders = response.data['superheros'] as List;
+        });
+      } else {
+        print("no data found");
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,14 +73,12 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                 color: ColorManager.faintblue,
                 size: AppSize.s65,
               ),
-              Text(
-                AppString.vishalmore,
-                style: ThemeManager.customTextStyle(color: ColorManager.navyblue)
-              ),
-              Text(
-                AppString.operatorshift,
-                style: ThemeManager.customTextStyle(color: ColorManager.black)
-              ),
+              Text(AppString.vishalmore,
+                  style: ThemeManager.customTextStyle(
+                      color: ColorManager.navyblue)),
+              Text(AppString.operatorshift,
+                  style:
+                      ThemeManager.customTextStyle(color: ColorManager.black)),
             ],
           ),
           const SizedBox(
@@ -70,9 +96,13 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                   data1?.forEach((element) {
                     print(element["dbid"]);
                     orders.add(OrdersModal(
-                        operation: element["operation"],
-                        //orderno: element["orderno"],
-                        items: element["items"]));
+                      operation: element["operation"],
+                      //orderno: element["orderno"],
+                      yield: element["yield"],
+                      rework: element["rework"],
+                      items: element["items"],
+                      rejection: element["rejection"],
+                    ));
                   });
                   return ScrollConfiguration(
                     behavior: ScrollConfiguration.of(context)
@@ -103,14 +133,14 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text(
-                                          AppString.operatoroo,
-                                          style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
-                                        ),
-                                        Text(
-                                          orders[index].operation,
-                                          style: RandomColor.customTextStyle(color: ColorManager.appbarcolor)
-                                        ),
+                                        Text(AppString.operatoroo,
+                                            style: RandomColor.customTextStyle(
+                                                color:
+                                                    ColorManager.appbarcolor)),
+                                        Text(orders[index].operation,
+                                            style: RandomColor.customTextStyle(
+                                                color:
+                                                    ColorManager.appbarcolor)),
                                       ],
                                     ),
                                     SizedBox(
@@ -122,26 +152,26 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                       children: [
                                         Row(
                                           children: [
-                                            Text(
-                                              AppString.orderoo,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
-                                            Text(
-                                              widget.ordernum,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
+                                            Text(AppString.orderoo,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
+                                            Text(widget.ordernum,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
                                           ],
                                         ),
                                         Row(
                                           children: [
-                                            Text(
-                                              AppString.itemsoo,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
-                                            Text(
-                                              orders[index].items,
-                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.black )
-                                            ),
+                                            Text(AppString.itemsoo,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
+                                            Text(orders[index].items,
+                                                style: HomeOperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
                                           ],
                                         ),
                                       ],
@@ -157,35 +187,45 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              AppString.yield,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
+                                            Text(AppString.yield,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
                                             SizedBox(
-                                              height: MediaQuery.of(context).size.height / 60,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  60,
                                             ),
-                                            Text(
-                                              '0',
-                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
-                                            ),
+                                            Text(orders[index].yield,
+                                                style: HomeOperatorConstant
+                                                    .customTextStyle(
+                                                        context,
+                                                        ColorManager
+                                                            .appbarcolor)),
                                           ],
                                         ),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            Text(
-                                              AppString.rework,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
+                                            Text(AppString.rework,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
                                             SizedBox(
-                                              height: MediaQuery.of(context).size.height / 60,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  60,
                                             ),
-                                            Text(
-                                              '0',
-                                              textAlign: TextAlign.center,
-                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
-                                            ),
+                                            Text(orders[index].rework,
+                                                textAlign: TextAlign.center,
+                                                style: HomeOperatorConstant
+                                                    .customTextStyle(
+                                                        context,
+                                                        ColorManager
+                                                            .appbarcolor)),
                                           ],
                                         ),
 
@@ -194,20 +234,22 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.end,
                                           children: [
-                                            Text(
-                                              AppString.rejection,
-                                              style: OperatorConstant.customTextStyle(context, ColorManager.black)
-                                            ),
+                                            Text(AppString.rejection,
+                                                style: OperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.black)),
                                             SizedBox(
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height /
                                                   60,
                                             ),
-                                            Text(
-                                              '0',
-                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.appbarcolor )
-                                            )
+                                            Text(orders[index].rejection,
+                                                style: HomeOperatorConstant
+                                                    .customTextStyle(
+                                                        context,
+                                                        ColorManager
+                                                            .appbarcolor))
                                           ],
                                         )
                                       ],
@@ -271,15 +313,28 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
                                                   .height /
                                               25,
                                           child: ElevatedButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              // createOperatorData().Dio().post().toString();
+                                              getData();
+                                              //createOperatorData();
+                                              //postDataEvent;
+                                              //  var dio = Dio();
+                                              // var  response = await dio.post(
+                                              //  “your-url",
+                                              //  data: objectData,
+                                              //  onSendProgress: (int yiel, int rework,int rejected) {
+                                              //    print(“$sent $total”);
+                                              //  },
+                                              //  );
+                                            },
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor:
                                                   ColorManager.appbarcolor,
                                             ),
-                                            child: Text(
-                                              AppString.save,
-                                              style: HomeOperatorConstant.customTextStyle(context,ColorManager.white )
-                                            ),
+                                            child: Text(AppString.save,
+                                                style: HomeOperatorConstant
+                                                    .customTextStyle(context,
+                                                        ColorManager.white)),
                                           ),
                                         ),
                                       ],
@@ -297,4 +352,45 @@ class _OperatorOrderScreenState extends State<OperatorOrderScreen> {
       )),
     );
   }
+
+  // Future<void> createOperatorData() async {
+  //   String token =
+  //       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjo0ODUyNDE3ODEyLCJpYXQiOjE2OTg4MTc4MTIsImp0aSI6IjAyMTA1MDEzYTg1ZDRlZjJiYWY0YWJiYjI5MzRiMTVmIiwidXNlcl9pZCI6MX0.ve3expi73Mkg1ZYJ7Fwc5SnBF-s3NBps-S8pgYlOLoo';
+  //
+  //   var dio = Dio();
+  //   var headers = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer $token'
+  //   };
+  //   var response = await dio.get("${AppConfig.endpoint}/api/v1/oprconf/list/");
+  //   options:
+  //   Options(
+  //     method: 'GET',
+  //     headers: headers,
+  //   );
+  //   print(response.statusCode);
+  //   print(response.data.toString());
+  // }
+//   Future<void> postDataEvent() async {
+//     String token =
+//         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjo0ODUyNDE3ODEyLCJpYXQiOjE2OTg4MTc4MTIsImp0aSI6IjAyMTA1MDEzYTg1ZDRlZjJiYWY0YWJiYjI5MzRiMTVmIiwidXNlcl9pZCI6MX0.ve3expi73Mkg1ZYJ7Fwc5SnBF-s3NBps-S8pgYlOLoo';
+
+//     var dio = Dio();
+//
+//     var headers = {
+//       'Content-Type': 'application/json',
+//       'Authorization': 'Bearer $token'
+//     };
+//
+//     var response = await dio.get("${AppConfig.endpoint}/api/v1/oprconf/list/");
+//
+//     if (response.statusCode == 200) {
+//       // Status is the message receiving in responce saying product
+//       //inserted successfully.
+//       print(response.data['Status']);
+//       print(response.statusCode);
+//     } else {
+//       print(response.statusMessage);
+//     }
+//   }
 }
